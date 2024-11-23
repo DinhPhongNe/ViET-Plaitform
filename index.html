@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+  <!--<![endif]-->
+  <head>
+    <!-- Basic Page Needs
+================================================== -->
+    <meta charset="utf-8" />
+    <title>ViET - Học được làm được</title>
+
+    <!-- Mobile Specific Metas
+================================================== -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <!-- CSS
+================================================== -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/colors/cyan.css" id="colors" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <!-- Header
+================================================== -->
+      <div id="header-container"></div>
+      
+      <div class="clearfix"></div>
+      
+      <!-- Banner
+================================================== -->
+      <div id="banner" style="background: url(images/banner-home-01.jpg)">
+        <div class="container">
+          <div class="sixteen columns">
+            <div class="search-container">
+              <!-- Form -->
+              <h2><strong>Tìm gia sư</strong></h2>
+              <input
+                type="text"
+                class="ico-01"
+                placeholder="Tìm theo tên giáo viên, keywords hoặc tên môn học"
+                value=""
+              />
+              <input
+                type="text"
+                class="ico-02"
+                placeholder="Tỉnh/Thành phố, Quận/huyện hoặc khu vực"
+                value=""
+              />
+              <button><i class="fa fa-search"></i></button>
+
+              <!-- Browse Jobs -->
+              <div class="browse-jobs">
+                Duyệt các việc làm theo
+                <a href="browse-categories.html"> phân loại</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content
+================================================== -->
+
+      <!-- Categories -->
+      <div class="container">
+        <div class="sixteen columns">
+          <h3 class="margin-bottom-25">Phân loại nổi bật</h3>
+          <ul id="popular-categories">
+            <li>
+              <a href="#"
+                ><i class="fa-solid fa-language"></i> Ngoại ngữ</a
+              >
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-school-flag"></i> Môn hàn lâm</a>
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fa-solid fa-terminal"></i> Lập trình</a
+              >
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fa fa-graduation-cap"></i> Ôn luyện học sinh giỏi</a
+              >
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-fax"></i> Kinh Doanh</a>
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fa-solid fa-address-book"></i> Kỹ năng cá nhân</a
+              >
+            </li>
+          </ul>
+
+          <div class="clearfix"></div>
+          <div class="margin-top-30"></div>
+
+          <a href="browse-categories.html" class="button centered"
+            >Tìm các môn học</a
+          >
+          <div class="margin-bottom-50"></div>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Recent Jobs -->
+        <div class="eleven columns">
+          <div class="padding-right">
+            <h3 class="margin-bottom-25">Gia sư gần đây</h3>
+            <ul class="job-list full">
+              <li>
+                <a href="job-page.html">
+                  <img src="images/job-list-logo-01.png" alt="" />
+                  <div class="job-list-content">
+                    <h4>
+                      Nguyễn Văn A
+                      <span class="Language_Teacher">giáo viên ngoại ngữ</span>
+                    </h4>
+                    <div class="job-icons">
+                      <span><i class="fa-solid fa-user-graduate"></i>Tiếng Trung</span>
+                      <span><i class="fa-solid fa-person-booth"></i>12 buổi dạy</span>
+                      <span><i class="fa-solid fa-money-bill-wave"></i> 150.000₫ / giờ</span>
+                      <span><i class="fa-solid fa-clock"></i>Thời gian hiển thị còn lại: 120 ngày</span>
+                      <span>Đánh giá: <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                    </div>
+                    <p>
+                      Chưa cập nhật giới thiệu bản thân
+                    </p>
+                  </div>
+                </a>
+                <div class="clearfix"></div>
+              </li>
+
+              <li>
+                <a href="job-page.html">
+                  <img src="images/job-list-logo-01.png" alt="" />
+                  <div class="job-list-content">
+                    <h4>
+                      Skibidi toilet
+                      <span class="School_Teacher">giáo viên dạy môn hàn lâm</span>
+                    </h4>
+                    <div class="job-icons">
+                      <span><i class="fa-solid fa-user-graduate"></i>Toán học</span>
+                      <span><i class="fa-solid fa-person-booth"></i>150 buổi dạy</span>
+                      <span><i class="fa-solid fa-money-bill-wave"></i> 200.000₫ / giờ</span>
+                      <span><i class="fa-solid fa-clock"></i>Thời gian hiển thị còn lại: ∞ ngày</span>
+                      <span>Đánh giá: <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                    </div>
+                    <p>
+                      Chưa cập nhật giới thiệu bản thân
+                    </p>
+                  </div>
+                </a>
+                <div class="clearfix"></div>
+              </li>
+
+              <li>
+                <a href="job-page.html">
+                  <img src="images/job-list-logo-01.png" alt="" />
+                  <div class="job-list-content">
+                    <h4>
+                      Trần Thị B
+                      <span class="ProgramingAndTechnology_Teacher">giáo viên dạy lập trình - công nghệ</span>
+                    </h4>
+                    <div class="job-icons">
+                      <span><i class="fa-solid fa-user-graduate"></i>Giáo viên Python</span>
+                      <span><i class="fa-solid fa-person-booth"></i>25 buổi dạy</span>
+                      <span><i class="fa-solid fa-money-bill-wave"></i> 250.000₫ / giờ</span>
+                      <span><i class="fa-solid fa-clock"></i> Thời gian hiển thị còn lại: 27 ngày</span>
+                      <span>Đánh giá: <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                    </div>
+                    <p>
+                      Chưa cập nhật giới thiệu bản thân
+                    </p>
+                  </div>
+                </a>
+                <div class="clearfix"></div>
+              </li>
+
+              <li>
+                <a href="job-page-alt.html">
+                  <a href="job-page.html">
+                    <img src="images/job-list-logo-01.png" alt="" />
+                    <div class="job-list-content">
+                      <h4>
+                        Nguyễn Thị Đường Tròn
+                        <span class="School_Teacher">giáo viên dạy kinh doanh</span>
+                      </h4>
+                      <div class="job-icons">
+                        <span><i class="fa-solid fa-user-graduate"></i>Quản lý tài chính/doanh nghiệp</span>
+                        <span><i class="fa-solid fa-person-booth"></i>30 buổi dạy</span>
+                        <span><i class="fa-solid fa-money-bill-wave"></i> 200.000₫ / giờ</span>
+                        <span><i class="fa-solid fa-clock"></i>Thời gian hiển thị còn lại: 3 ngày</span>
+                        <span>Đánh giá: <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                      </div>
+                      <p>
+                        Chưa cập nhật giới thiệu bản thân
+                      </p>
+                    </div>
+                  </a>
+                  <div class="clearfix"></div>
+              </li>
+
+              <li>
+                <a href="job-page-alt.html">
+                  <a href="job-page.html">
+                    <img src="images/job-list-logo-01.png" alt="" />
+                    <div class="job-list-content">
+                      <h4>
+                        Trịnh Trần Phương Tuấn
+                        <span class="Self_Skill_Teacher">giáo viên dạy Kỹ năng cá nhân</span>
+                      </h4>
+                      <div class="job-icons">
+                        <span><i class="fa-solid fa-user-graduate"></i>Kỹ năng đặc thù theo nhu cầu</span>
+                        <span><i class="fa-solid fa-person-booth"></i>97 buổi dạy</span>
+                        <span><i class="fa-solid fa-money-bill-wave"></i> 5.000.000₫ / giờ</span>
+                        <span><i class="fa-solid fa-clock"></i>Thời gian hiển thị còn lại: 97 ngày</span>
+                        <span>Đánh giá: <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                      </div>
+                      <p>
+                        Chưa cập nhật giới thiệu bản thân
+                      </p>
+                    </div>
+                  </a>
+                  <div class="clearfix"></div>
+              </li>
+            </ul>
+
+            <a href="browse-jobs.html" class="button centered"
+              ><i class="fa fa-plus-circle"></i> Tìm thêm gia sư</a
+            >
+            <div class="margin-bottom-55"></div>
+          </div>
+        </div>
+
+        <!-- Job Spotlight -->
+        <div class="five columns">
+          <h3 class="margin-bottom-5">Gia sư tiêu biểu</h3>
+
+          <!-- Navigation -->
+          <div class="showbiz-navigation">
+            <div id="showbiz_left_1" class="sb-navigation-left">
+              <i class="fa fa-angle-left"></i>
+            </div>
+            <div id="showbiz_right_1" class="sb-navigation-right">
+              <i class="fa fa-angle-right"></i>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+
+          <!-- Showbiz Container -->
+          <div id="job-spotlight" class="showbiz-container">
+            <div
+              class="showbiz"
+              data-left="#showbiz_left_1"
+              data-right="#showbiz_right_1"
+              data-play="#showbiz_play_1"
+            >
+              <div class="overflowholder">
+                <ul>
+                  <li>
+                    <div class="job-spotlight">
+                      <a href="#"
+                        ><h4>
+                          Nguyễn Quốc Dinh
+                          <span class="Special_School_Teacher_Tag">Siêu giáo viên</span>
+                          <span class="Special_School_Teacher">giáo viên ôn luyện học sinh giỏi</span>
+                        </h4></a
+                      >
+                      <span><i class="fa-solid fa-user-graduate"></i>Ôn luyện học sinh giỏi Tin</span>
+                      <span><i class="fa-solid fa-person-booth"></i>97 buổi dạy</span>
+                      <span><i class="fa-solid fa-money-bill-wave"></i> 250.000₫ / giờ</span>
+                      <span><i class="fa-solid fa-clock"></i>Thời gian hiển thị còn lại: 97 ngày</span>
+                      <span>Đánh giá: <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                      <p>
+                        chưa cập nhật giới thiệu
+                      </p>
+                      <a href="job-page.html" class="button"
+                        >Đặt buổi học thử</a
+                      >
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="job-spotlight">
+                      <a href="#"
+                        ><h4>
+                          Nguyễn Văn Thiên
+                          <span class="Special_School_Teacher_Tag">Siêu giáo viên</span>
+                          <span class="Special_School_Teacher">giáo viên ôn luyện học sinh giỏi</span>
+                        </h4></a
+                      >
+                      <span><i class="fa-solid fa-user-graduate"></i>Ôn luyện học sinh giỏi Toán</span>
+                      <span><i class="fa-solid fa-person-booth"></i>53 buổi dạy</span>
+                      <span><i class="fa-solid fa-money-bill-wave"></i> 150.000₫ / giờ</span>
+                      <span><i class="fa-solid fa-clock"></i>Thời gian hiển thị còn lại: 97 ngày</span>
+                      <span>Đánh giá: <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                      <p>
+                        chưa cập nhật giới thiệu
+                      </p>
+                      <a href="job-page.html" class="button"
+                        >Đặt buổi học thử</a>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="job-spotlight">
+                      <a href="#"
+                        ><h4>
+                          Đặng Thị Minh Yến
+                          <span class="Special_School_Teacher_Tag">Siêu giáo viên</span>
+                          <span class="Special_School_Teacher">giáo viên ôn luyện học sinh giỏi</span>
+                        </h4></a
+                      >
+                      <span><i class="fa-solid fa-user-graduate"></i>Ôn luyện học sinh giỏi Hoá</span>
+                      <span><i class="fa-solid fa-person-booth"></i>89 buổi dạy</span>
+                      <span><i class="fa-solid fa-money-bill-wave"></i> 150.000₫ / giờ</span>
+                      <span><i class="fa-solid fa-clock"></i>Thời gian hiển thị còn lại: 97 ngày</span>
+                      <span>Đánh giá: <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                      <p>
+                        chưa cập nhật giới thiệu
+                      </p>
+                      <a href="job-page.html" class="button"
+                        >Đặt buổi học thử</a>
+                    </div>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div id="testimonials">
+        <!-- Slider -->
+        <div class="container">
+          <div class="sixteen columns">
+            <div class="testimonials-slider">
+              <ul class="slides">
+                <li>
+                  <p>
+                    <em>Hãy sống như thể bạn sẽ chết vào ngày mai. Hãy học như thể bạn sẽ sống mãi mãi.</em><span>– Mahatma Gandhi</span>
+                  </p>
+                </li>
+
+                <li>
+                  <p><em>Giáo dục là vũ khí mạnh mẽ nhất mà bạn có thể sử dụng để thay đổi thế giới.</em><span>– Nelson Mandela</span>
+                  </p>
+                </li>
+
+                <li>
+                  <p><em>Điều tuyệt vời nhất về việc học là không ai có thể lấy nó đi khỏi bạn.</em><span>– B.B. King</span>
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Posts -->
+      <div class="container">
+        <div class="sixteen columns">
+          <h3 class="margin-bottom-25">Bài đăng gần đây</h3>
+        </div>
+
+        <div class="one-third column">
+          <!-- Post #1 -->
+          <div class="recent-post">
+            <div class="recent-post-img">
+              <a href="blog-single-post.html"
+                ><img src="images/recent-post-01.jpg" alt=""
+              /></a>
+              <div class="hover-icon"></div>
+            </div>
+            <a href="blog-single-post.html"
+              ><h4>Này bạn học, đến giờ học cùng gia sư rồi!</h4></a
+            >
+            <div class="meta-tags">
+              <span>October 10, 2024</span>
+              <span><a href="#">25 bình luận</a></span>
+            </div>
+            <p>
+              không có lời mô tả
+            </p>
+            <a href="blog-single-post.html" class="button">Đọc thêm</a>
+          </div>
+        </div>
+
+        <div class="one-third column">
+          <!-- Post #2 -->
+          <div class="recent-post">
+            <div class="recent-post-img">
+              <a href="blog-single-post.html"
+                ><img src="images/recent-post-02.jpg" alt=""
+              /></a>
+              <div class="hover-icon"></div>
+            </div>
+            <a href="blog-single-post.html"
+              ><h4>Làm thế nào để "thu hút" học viên chú ý đến hồ sơ của bạn</h4></a
+            >
+            <div class="meta-tags">
+              <span>September 12, 2024</span>
+              <span><a href="#">1 bình luận</a></span>
+            </div>
+            <p>
+              không có lời mô tả
+            </p>
+            <a href="blog-single-post.html" class="button">Đọc thêm</a>
+          </div>
+        </div>
+
+        <div class="one-third column">
+          <!-- Post #3 -->
+          <div class="recent-post">
+            <div class="recent-post-img">
+              <a href="blog-single-post.html"
+                ><img src="images/recent-post-03.jpg" alt=""
+              /></a>
+              <div class="hover-icon"></div>
+            </div>
+            <a href="blog-single-post.html"
+              ><h4>
+                Những tip để dạy học viên tốt và thu hút hơn
+              </h4></a
+            >
+            <div class="meta-tags">
+              <span>August 27, 2024</span>
+              <span><a href="#">150 bình luận</a></span>
+            </div>
+            <p>
+              không có lời mô tả
+            </p>
+            <a href="blog-single-post.html" class="button">Đọc thêm</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer
+================================================== -->
+<div class="margin-top-15"></div>
+
+      <div id="footer-container"></div>
+      <!-- Back To Top Button -->
+      <div id="backtotop"><a href="#"></a></div>
+    </div>
+    <!-- Wrapper / End -->
+
+    <!-- Scripts
+================================================== -->
+    <script src="scripts/jquery-2.1.3.min.js"></script>
+    <script src="scripts/custom.js"></script>
+    <script src="scripts/jquery.superfish.js"></script>
+    <script src="scripts/jquery.themepunch.tools.min.js"></script>
+    <script src="scripts/jquery.themepunch.revolution.min.js"></script>
+    <script src="scripts/jquery.themepunch.showbizpro.min.js"></script>
+    <script src="scripts/jquery.flexslider-min.js"></script>
+    <script src="scripts/chosen.jquery.min.js"></script>
+    <script src="scripts/jquery.magnific-popup.min.js"></script>
+    <script src="scripts/waypoints.min.js"></script>
+    <script src="scripts/jquery.counterup.min.js"></script>
+    <script src="scripts/jquery.jpanelmenu.js"></script>
+    <script src="scripts/stacktable.js"></script>
+    <!-- <script src="scripts/forceToLogin.js"></script> -->
+    <script src="OOP_JS-Render/headerRender.js"></script>
+    <script src="OOP_JS-Render/footerRender.js"></script>
+
+    <!-- Tải jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Tải các plugin cần thiết (tùy theo các thư viện bạn sử dụng) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-superfish/1.7.10/js/superfish.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jpanelmenu@1.2.0/dist/jPanelMenu.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stacktable/1.0.5/stacktable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+  </body>
+</html>

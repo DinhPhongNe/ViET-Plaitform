@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>ViET - Đăng Bài Tìm Học Viên</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
+        integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- Header -->
+        <div id="header-container"></div>
+        <div class="clearfix"></div>
+
+        <!-- Titlebar -->
+        <div id="titlebar" class="single submit-page">
+            <div class="container">
+                <div class="sixteen columns">
+                    <h2><i class="fa fa-plus-circle"></i> Đăng bài tìm học viên</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="container">
+            <div class="sixteen columns">
+                <div class="submit-page">
+                    <!-- Notice -->
+                    <div class="notification notice closeable margin-bottom-40">
+                        <p>
+                            <span>Đã có tài khoản?</span> Nếu bạn chưa có tài khoản, hãy nhập email dưới đây và mật khẩu
+                            sẽ được gửi về email của bạn.
+                        </p>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form">
+                        <h5>Email của bạn</h5>
+                        <input class="search-field" type="email" id="email" placeholder="mail@example.com" />
+                    </div>
+
+                    <!-- Title -->
+                    <div class="form">
+                        <h5>Tên bài đăng</h5>
+                        <input class="search-field" type="text" id="title" placeholder="Tên bài đăng" />
+                    </div>
+
+                    <!-- Job Type -->
+                    <div class="form">
+                        <h5>Loại công việc</h5>
+                        <select data-placeholder="Tuỳ chọn" class="chosen-select-no-single" id="job-type">
+                            <option value="1">Giáo viên ngoại ngữ</option>
+                            <option value="2">Giáo viên dạy môn hàn lâm</option>
+                            <option value="3">Giáo viên dạy lập trình - công nghệ</option>
+                            <option value="4">Giáo viên <strong>ÔN LUYỆN HỌC SINH GIỎI</strong></option>
+                            <option value="5">Giáo viên dạy kinh doanh</option>
+                            <option value="5">Giáo viên dạy kỹ năng cá nhân</option>
+                        </select>
+                    </div>
+
+                    <!-- Category -->
+                    <div class="form">
+                      <h5>Danh mục</h5>
+                      <select data-placeholder="Chọn Danh Mục" class="chosen-select" id="category" multiple>
+                          <!-- Tiếng Hỗ Trợ -->
+                          <option value="english">Tiếng Anh</option>
+                          <option value="chinese">Tiếng Trung</option>
+                          <option value="japanese">Tiếng Nhật</option>
+                          <option value="korean">Tiếng Hàn</option>
+                          <option value="french">Tiếng Pháp</option>
+                          <option value="spanish">Tiếng Tây Ban Nha</option>
+                          <option value="german">Tiếng Đức</option>
+                          <option value="italian">Tiếng Ý</option>
+                          <option value="russian">Tiếng Nga</option>
+                          <option value="polish">Tiếng Ba Lan</option>
+                          <option value="turkish">Tiếng Thổ Nhĩ Kỳ</option>
+                          <option value="thai">Tiếng Thái</option>
+                          <option value="malaysian">Tiếng Malaysia</option>
+                          <option value="indonesian">Tiếng Indonesia</option>
+                  
+                          <!-- Các Môn Học Tại Trường -->
+                          <option value="math">Môn Toán</option>
+                          <option value="physics">Môn Lý</option>
+                          <option value="chemistry">Môn Hóa</option>
+                          <option value="biology">Môn Sinh</option>
+                          <option value="literature">Môn Văn</option>
+                          <option value="english-subject">Môn Anh</option>
+                  
+                          <!-- Lập Trình -->
+                          <option value="programming-c">Lập trình C</option>
+                          <option value="programming-cplusplus">Lập trình C++</option>
+                          <option value="programming-csharp">Lập trình C#</option>
+                          <option value="programming-objective-c">Lập trình Objective C</option>
+                          <option value="programming-golang">Go lang</option>
+                          <option value="programming-java">Java</option>
+                          <option value="programming-javascript">Javascript</option>
+                          <option value="programming-python">Python</option>
+                          <option value="programming-database">Database</option>
+                          <option value="programming-algorithms">Thuật toán (algorithm)</option>
+                          <option value="project-management">Quản lý dự án lập trình</option>
+                          <option value="data-science">Khoa học dữ liệu</option>
+                          <option value="ux-ui">UX/UI</option>
+                          <option value="computer-science">Khoa học máy tính</option>
+                          <option value="web-analysis">Phân tích web</option>
+                          <option value="web-development">Lập trình Web (HTML + CSS + JS)</option>
+                          <option value="ios-development">Lập trình ứng dụng iOS</option>
+                          <option value="android-development">Lập trình ứng dụng Android</option>
+                          <option value="ai-machine-learning">AI & Machine Learning</option>
+                          <option value="iot">IoT (Internet of Things)</option>
+                          <option value="robotics">Robotics</option>
+                  
+                          <!-- Ôn Luyện Học Sinh Giỏi -->
+                          <option value="exam-coaching">Ôn luyện học sinh giỏi (1 - 1)</option>
+                          <option value="exam-coaching-math">Ôn luyện học sinh giỏi Toán</option>
+                          <option value="exam-coaching-literature">Ôn luyện học sinh giỏi Văn</option>
+                          <option value="exam-coaching-english">Ôn luyện học sinh giỏi Anh</option>
+                          <option value="exam-coaching-physics">Ôn luyện học sinh giỏi Lý</option>
+                          <option value="exam-coaching-chemistry">Ôn luyện học sinh giỏi Hóa</option>
+                          <option value="exam-coaching-biology">Ôn luyện học sinh giỏi Sinh</option>
+                          <option value="exam-coaching-history">Ôn luyện học sinh giỏi Sử</option>
+                          <option value="exam-coaching-geography">Ôn luyện học sinh giỏi Địa</option>
+                          <option value="exam-coaching-computer">Ôn luyện học sinh giỏi Tin</option>
+                  
+                          <!-- Kinh Doanh -->
+                          <option value="business">Kinh Doanh</option>
+                          <option value="finance-management">Quản lý tài chính/doanh nghiệp</option>
+                          <option value="basic-marketing">Marketing cơ bản</option>
+                          <option value="sales-skills">Kỹ năng bán hàng</option>
+                          <option value="e-commerce">Thương mại điện tử</option>
+                          <option value="business-strategy">Chiến lược kinh doanh</option>
+                          <option value="hr-management">Quản trị nhân sự</option>
+                          <option value="personal-branding">Xây dựng thương hiệu cá nhân/doanh nghiệp</option>
+                          <option value="seo">SEO</option>
+                          <option value="sem">SEM</option>
+                          <option value="cro">CRO</option>
+                          <option value="sme">SME</option>
+                  
+                          <!-- Kỹ Năng Cá Nhân -->
+                          <option value="communication-skills">Kỹ năng giao tiếp</option>
+                          <option value="time-management">Kỹ năng quản lý thời gian/công việc</option>
+                          <option value="thinking-skills">Kỹ năng tư duy</option>
+                          <option value="self-development">Kỹ năng phát triển bản thân</option>
+                          <option value="personal-tech-skills">Kỹ năng công nghệ cá nhân</option>
+                          <option value="workplace-skills">Kỹ năng dành cho môi trường làm việc</option>
+                          <option value="self-care">Kỹ năng chăm sóc bản thân</option>
+                          <option value="specialized-skills">Kỹ năng đặc thù theo nhu cầu</option>
+                      </select>
+                  </div>
+                  
+
+                    <!-- Tags -->
+                    <div class="form">
+                        <h5>Tags (Tùy chọn)</h5>
+                        <input class="search-field" type="text" id="tags" placeholder="e.g. Tiếng Anh, Toán học" />
+                    </div>
+
+                    <!-- Description -->
+                    <div class="form">
+                        <h5>Mô tả công việc</h5>
+                        <textarea class="WYSIWYG" id="description" cols="40" rows="3" placeholder="Mô tả chi tiết công việc"></textarea>
+                    </div>
+
+                    <!-- Payment info (Can be optional, but can use some values from the header form above) -->
+                    <div class="form">
+                        <h5>Số tiền / Giờ</h5>
+                        <input class="search-field" type="number" id="payment" placeholder="Nhập số tiền / giờ" />
+                    </div>
+
+                    <!-- Job Duration -->
+                    <div class="form">
+                        <h5>Thời gian hiển thị</h5>
+                        <input class="search-field" type="text" id="duration" placeholder="Thời gian hiển thị (ví dụ: 120 ngày). Hệ thống sẽ kiểm tra có đúng như số ngày đã nhập không, không thì sẽ tự động chỉnh" />
+                    </div>
+
+                    <!-- Application Email -->
+                    <div class="form">
+                        <h5>Email nhận hồ sơ</h5>
+                        <input type="email" id="application-email" placeholder="Nhập email nhận hồ sơ" />
+                    </div>
+
+                    <!-- Preview -->
+                    <div class="divider margin-top-0"></div>
+                    <a href="#" class="button big margin-top-5">
+                        Xem trước <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="margin-top-60"></div>
+        <div id="footer-container"></div>
+
+        <!-- Back To Top Button -->
+        <div id="backtotop"><a href="#"></a></div>
+    </div>
+    <!-- Wrapper / End -->
+
+    <!-- Scripts -->
+    <script src="scripts/jquery-2.1.3.min.js"></script>
+    <script src="scripts/custom.js"></script>
+    <script src="scripts/jquery.superfish.js"></script>
+    <script src="scripts/jquery.themepunch.tools.min.js"></script>
+    <script src="scripts/jquery.themepunch.revolution.min.js"></script>
+    <script src="scripts/jquery.themepunch.showbizpro.min.js"></script>
+    <script src="scripts/jquery.flexslider-min.js"></script>
+    <script src="scripts/chosen.jquery.min.js"></script>
+    <script src="scripts/jquery.magnific-popup.min.js"></script>
+    <script src="scripts/waypoints.min.js"></script>
+    <script src="scripts/jquery.counterup.min.js"></script>
+    <script src="scripts/jquery.jpanelmenu.js"></script>
+    <script src="scripts/stacktable.js"></script>
+    <script src="OOP_JS-Render/headerRender.js"></script>
+    <script src="OOP_JS-Render/footerRender.js"></script>
+
+    <!-- WYSIWYG Editor -->
+    <script type="text/javascript" src="scripts/jquery.sceditor.bbcode.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.sceditor.js"></script>
+</body>
+
+</html>

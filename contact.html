@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+  <!--<![endif]-->
+  <head>
+    <!-- Basic Page Needs
+================================================== -->
+    <meta charset="utf-8" />
+    <title>ViET - Học được làm được</title>
+
+    <!-- Mobile Specific Metas
+================================================== -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <!-- CSS
+================================================== -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/colors/cyan.css" id="colors" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
+      integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <!-- Header
+================================================== -->
+<div id="header-container"></div>
+      <div class="clearfix"></div>
+
+      <!-- Titlebar
+================================================== -->
+      <div id="titlebar" class="single">
+        <div class="container">
+          <div class="sixteen columns">
+            <h2>Liên hệ</h2>
+            <nav id="breadcrumbs">
+              <ul>
+                <li>Bạn ở đây:</li>
+                <li><a href="#">Trang chủ</a></li>
+                <li>Liên Hệ</li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content
+================================================== -->
+
+      <!-- Container -->
+      <div class="container">
+        <div class="eleven columns">
+          <h3 class="margin-bottom-15">Biểu mẫu liên hệ</h3>
+
+          <!-- Contact Form -->
+          <section id="contact" class="padding-right">
+            <!-- Success Message -->
+            <mark id="message"></mark>
+
+            <!-- Form -->
+            <form method="post" name="contactform" id="contactform">
+              <fieldset>
+                <div>
+                  <label>Tên:</label>
+                  <input name="name" type="text" id="name" />
+                </div>
+
+                <div>
+                  <label>Email: <span>*</span></label>
+                  <input
+                    name="email"
+                    type="email"
+                    id="email"
+                    pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$"
+                  />
+                </div>
+
+                <div>
+                  <label>Tin nhắn: <span>*</span></label>
+                  <textarea
+                    name="comment"
+                    cols="40"
+                    rows="3"
+                    id="comment"
+                    spellcheck="true"
+                  ></textarea>
+                </div>
+              </fieldset>
+              <div id="result"></div>
+              <input
+                type="submit"
+                class="submit"
+                id="submit"
+                value="Send Message"
+              />
+              <div class="clearfix"></div>
+              <div class="margin-bottom-40"></div>
+            </form>
+          </section>
+          <!-- Contact Form / End -->
+        </div>
+        <!-- Container / End -->
+
+        <!-- Sidebar
+================================================== -->
+        <div class="five columns">
+          <!-- Information -->
+          <h3 class="margin-bottom-10">Thông tin</h3>
+          <div class="widget-box">
+            <p>
+              Morbi eros bibendum lorem ipsum dolor pellentesque pellentesque
+              bibendum.
+            </p>
+
+            <ul class="contact-informations">
+              <li><a href="#"></a>000/000/Thành phố Hồ Chí Minh</li>
+              <li><a href="#"></a>000/000/Thành phố Hà Nội</li>
+            </ul>
+
+            <ul class="contact-informations second">
+              <li>
+                <i class="fa fa-phone"></i>
+                <p>+84 000 123 456</p>
+              </li>
+              <li>
+                <i class="fa fa-envelope"></i>
+                <p>mail@example.com</p>
+              </li>
+              <li>
+                <i class="fa fa-globe"></i>
+                <p>www.example.com</p>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Social -->
+          <div class="widget margin-top-30">
+            <h3 class="margin-bottom-5">Trang cá nhân</h3>
+            <ul class="social-icons">
+              <li>
+                <a class="facebook" href="#"><i class="icon-facebook"></i></a>
+              </li>
+              <li>
+                <a class="twitter" href="#"><i class="icon-twitter"></i></a>
+              </li>
+              <li>
+                <a class="gplus" href="#"><i class="icon-gplus"></i></a>
+              </li>
+              <li>
+                <a class="linkedin" href="#"><i class="icon-linkedin"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+            <div class="margin-bottom-50"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Container / End -->
+
+      <!-- Footer
+================================================== -->
+      <div class="margin-top-20"></div>
+
+<div id="footer-container"></div>
+
+      <!-- Back To Top Button -->
+      <div id="backtotop"><a href="#"></a></div>
+    </div>
+    <!-- Wrapper / End -->
+
+    <!-- Scripts
+================================================== -->
+    <script src="scripts/jquery-2.1.3.min.js"></script>
+    <script src="scripts/custom.js"></script>
+    <script src="scripts/jquery.superfish.js"></script>
+    <script src="scripts/jquery.themepunch.tools.min.js"></script>
+    <script src="scripts/jquery.themepunch.revolution.min.js"></script>
+    <script src="scripts/jquery.themepunch.showbizpro.min.js"></script>
+    <script src="scripts/jquery.flexslider-min.js"></script>
+    <script src="scripts/chosen.jquery.min.js"></script>
+    <script src="scripts/jquery.magnific-popup.min.js"></script>
+    <script src="scripts/waypoints.min.js"></script>
+    <script src="scripts/jquery.counterup.min.js"></script>
+    <script src="scripts/jquery.jpanelmenu.js"></script>
+    <script src="scripts/stacktable.js"></script>
+    <script src="OOP_JS-Render/headerRender.js"></script>
+    <script src="OOP_JS-Render/footerRender.js"></script>
+
+    <!-- Google Maps -->
+    <script src="scripts/jquery.gmaps.min.js"></script>
+
+    <script type="text/javascript">
+      (function ($) {
+        $(document).ready(function () {
+          $("#googlemaps").gMap({
+            maptype: "ROADMAP",
+            scrollwheel: false,
+            zoom: 13,
+            markers: [
+              {
+                address: "New York, 45 Park Avenue", // Your Adress Here
+                html: "<strong>Our Office</strong><br>45 Park Avenue, Apt. 303 </br>New York, NY 10016 ",
+                popup: true,
+              },
+            ],
+          });
+        });
+      })(this.jQuery);
+    </script>
+  </body>
+</html>

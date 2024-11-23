@@ -1,0 +1,173 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+header {
+	width: 100vw;
+	min-height: 100vh;
+	background: #34495e;
+	font-size: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	background: white;
+	max-width: 900px;
+	min-height: 500px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding: 1.5rem;
+	border-radius: 10px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+	width: 100%;
+}
+
+h3 {
+	margin-top: 1rem;
+	color: #2c3e50;
+}
+
+input, select {
+	width: 100%;
+	padding: 0.8rem;
+	margin: 0.5rem 0;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+	border-color: #3498db;
+	outline: none;
+}
+
+input[type="submit"] {
+	background: #3498db;
+	color: white;
+	border: none;
+	padding: 1rem;
+	border-radius: 5px;
+	font-size: 1.1rem;
+	cursor: pointer;
+	transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover {
+	background: #2980b9;
+}
+
+@media only screen and (max-width: 770px) {
+	.container {
+		flex-direction: column;
+	}
+	body {
+		overflow-x: hidden;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	h3 {
+		font-size: 1.5rem;
+	}
+	input, select {
+		font-size: 1rem;
+	}
+}
+
+.payment-popup {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.popup-content {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	text-align: center;
+	width: 300px;
+}
+
+.progress {
+	margin: 20px 0;
+}
+
+#payment-progress {
+	height: 20px;
+}
+
+#complete-payment {
+	margin-top: 20px;
+}
+
+.success-popup {
+	position: fixed;
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #28a745;
+	color: white;
+	padding: 15px;
+	border-radius: 5px;
+	display: none;
+	z-index: 1001;
+}
+
+.error-popup {
+	position: fixed;
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #dc3545;
+	color: white;
+	padding: 15px;
+	border-radius: 5px;
+	display: none;
+	z-index: 1001;
+}
+
+.payment-confirmation {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.payment-confirmation .popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+}
+
+.popup-buttons {
+    margin-top: 20px;
+}
+
+.popup-buttons button {
+    margin: 5px;
+}
+
