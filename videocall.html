@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ViET - Gọi</title>
+
+    <!-- Add Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style_call.css" />
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="app-container">
+      <button class="mode-switch">
+        <!-- sun icon -->
+        <svg
+          class="sun"
+          fill="none"
+          stroke="#fbb046"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          class="feather feather-sun"
+          viewBox="0 0 24 24"
+        >
+          <defs />
+          <circle cx="12" cy="12" r="5" />
+          <path
+            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+          />
+        </svg>
+        <!-- sun icon -->
+
+        <!-- moon icon -->
+        <svg
+          class="moon"
+          fill="none"
+          stroke="#ffffff"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          class="feather feather-moon"
+          viewBox="0 0 24 24"
+        >
+          <defs />
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+        </svg>
+        <!-- moon icon -->
+      </button>
+      <div class="left-side">
+        <div class="navigation">
+          <a href="#" class="nav-link icon">
+            <!-- Home icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-home"
+              viewBox="0 0 24 24"
+            >
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              <path d="M9 22V12h6v10" />
+            </svg>
+            <!-- Home icon -->
+          </a>
+
+          <a href="#" class="nav-link icon">
+            <!-- comment icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-message-square"
+            >
+              <path
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              />
+            </svg>
+            <!-- comment icon -->
+          </a>
+          <a href="#" class="nav-link icon">
+            <!-- ringing phone icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-phone-call"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M15.05 5A5 5 0 0119 8.95M15.05 1A9 9 0 0123 8.94m-1 7.98v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"
+              />
+            </svg>
+            <!-- ringing phone icon -->
+          </a>
+          <a href="#" class="nav-link icon">
+            <!-- disk icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-hard-drive"
+            >
+              <line x1="22" y1="12" x2="2" y2="12" />
+              <path
+                d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
+              />
+              <line x1="6" y1="16" x2="6.01" y2="16" />
+              <line x1="10" y1="16" x2="10.01" y2="16" />
+            </svg>
+            <!-- disk icon -->
+          </a>
+          <a href="#" class="nav-link icon">
+            <!-- people icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-users"
+            >
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            <!-- people icon -->
+          </a>
+          <a href="#" class="nav-link icon">
+            <!-- Folder icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-folder"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"
+              />
+            </svg>
+            <!-- Folder icon -->
+          </a>
+          <a href="#" class="nav-link icon">
+            <!-- Setting icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-settings"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"
+              />
+            </svg>
+            <!-- Setting icon -->
+          </a>
+        </div>
+      </div>
+      <div class="app-main">
+        <div class="video-call-wrapper">
+            <video id="video" class="video_left"></video>
+            <video id="video_2" class="video_right"></video>
+        </div>
+
+        <div class="video-call-actions">
+          <button class="video-action-button mic muted"></button>
+          <button class="video-action-button camera camera-off"></button>
+          <button class="video-action-button maximize"></button>
+          <button class="video-action-button endcall" id="endcall-btn">Leave</button>
+          <button class="video-action-button magnifier">
+            <!-- ZoomIn icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-zoom-in"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="M21 21l-4.35-4.35M11 8v6M8 11h6" />
+            </svg>
+
+            <!-- ZoomIn icon -->
+            <span>100%</span>
+            <!-- ZoomOut Icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-zoom-out"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              <line x1="8" y1="11" x2="14" y2="11" />
+            </svg>
+            <!-- ZoomOut Icon -->
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Side -->
+      <div class="right-side">
+        <button class="btn-close-right">
+          <!-- Close Icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="feather feather-x-circle"
+            viewBox="0 0 24 24"
+          >
+            <defs></defs>
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M15 9l-6 6M9 9l6 6"></path>
+          </svg>
+          <!-- Close Icon -->
+        </button>
+        <div class="chat-container">
+          <div class="chat-area">
+          </div>
+          <div class="chat-typing-area-wrapper">
+            <div class="chat-typing-area">
+              <input
+                type="text"
+                placeholder="Type your message..."
+                class="chat-input"
+              />
+              <button class="send-button">
+                <!-- Send icon -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-send"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                </svg>
+                <!-- Send icon -->
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="participants">
+          <!-- Participant pic 1 -->
+          <div class="participant profile-picture">
+            <img
+              src="https://images.unsplash.com/photo-1576110397661-64a019d88a98?ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80"
+              alt=""
+            />
+          </div>
+          <!-- Participant pic 2 -->
+          <div class="participant profile-picture">
+            <img
+              src="https://images.unsplash.com/photo-1566821582776-92b13ab46bb4?ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <button class="expand-btn">
+      </button>
+    </div>
+            <!-- Feedback Modal -->
+            <div id="feedback-modal" class="modal">
+              <div class="modal-content">
+                  <div class="modal-header">Đánh giá buổi học</div>
+                  <form id="feedback-form">
+                      <div class="modal-rating">
+                          <label>Chất lượng Video:</label>
+                          <div class="star-rating">
+                              <input type="radio" id="video-star1" name="video-rating" value="1">
+                              <label for="video-star1">★</label>
+                              <input type="radio" id="video-star2" name="video-rating" value="2">
+                              <label for="video-star2">★</label>
+                              <input type="radio" id="video-star3" name="video-rating" value="3">
+                              <label for="video-star3">★</label>
+                              <input type="radio" id="video-star4" name="video-rating" value="4">
+                              <label for="video-star4">★</label>
+                              <input type="radio" id="video-star5" name="video-rating" value="5">
+                              <label for="video-star5">★</label>
+                          </div>
+                      </div>
+                      <div class="modal-rating">
+                          <label>Chất lượng Âm thanh:</label>
+                          <div class="star-rating">
+                              <input type="radio" id="audio-star1" name="audio-rating" value="1">
+                              <label for="audio-star1">★</label>
+                              <input type="radio" id="audio-star2" name="audio-rating" value="2">
+                              <label for="audio-star2">★</label>
+                              <input type="radio" id="audio-star3" name="audio-rating" value="3">
+                              <label for="audio-star3">★</label>
+                              <input type="radio" id="audio-star4" name="audio-rating" value="4">
+                              <label for="audio-star4">★</label>
+                              <input type="radio" id="audio-star5" name="audio-rating" value="5">
+                              <label for="audio-star5">★</label>
+                          </div>
+                      </div>
+                      <div class="modal-rating">
+                          <label for="comments">Nhận xét thêm:</label>
+                          <textarea id="comments" name="comments" rows="4" style="width: 100%; border: 1px solid #ccc; border-radius: 5px; padding: 10px;"></textarea>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn-cancel" id="cancel-feedback">Hủy</button>
+                          <button type="submit" class="btn-submit">Gửi</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+
+      <div id="success-modal" class="success-modal">
+            <div class="success-content">
+                <h3>Cảm ơn bạn đã đánh giá!</h3>
+                <p>Chúng tôi đã ghi nhận ý kiến của bạn.</p>
+                <button id="close-success">Đóng</button>
+            </div>
+        </div>
+      </div>
+
+      <div id="camera-popup" class="camera-popup">
+        <div class="popup-content">
+            <p id="camera-popup-message">Camera đã tắt</p>
+            <button id="close-popup">Đóng</button>
+        </div>
+    </div>
+    
+    <script src="scripts/calling.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-peer@latest/simplepeer.min.js"></script>
+  </body>
+</html>

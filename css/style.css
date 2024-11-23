@@ -5594,6 +5594,34 @@ ul.footer-links { margin: 0 0 15px 0; }
 	letter-spacing: -0.5px;
 }
 
+.join_with_tutor {
+	background-color: #2db2ea;
+	color: white;
+	font-size: 1.5rem;
+	font-weight: bold;
+	padding: 20px;
+	text-align: center;
+	border-radius: 10px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	transition: all 0.3s ease;
+	position: relative;
+	z-index: 1;
+  }
+  
+  .join_with_tutor:hover {
+	background-color: #2db2ea;
+	cursor: pointer;
+	box-shadow: 0 0 15px 5px rgba(45, 178, 234, 1), 0 0 30px 10px rgba(45, 178, 234, 0.6);
+  }
+  
+  .join_with_tutor a {
+	color: white;
+	text-decoration: underline;
+	font-weight: bold;
+  }
+  
+  
+
 
 
 /* ------------------------------------------------------------------- */

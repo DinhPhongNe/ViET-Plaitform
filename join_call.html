@@ -19,7 +19,6 @@
     <!-- CSS
 ================================================== -->
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/style_call.css">
     <link rel="stylesheet" href="css/colors/cyan.css" id="colors" />
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -32,7 +31,6 @@
   <body>
     <div id="wrapper">
       <!-- Header
-       
 ================================================== -->
       <div id="header-container"></div>
       
@@ -44,26 +42,9 @@
         <div class="container">
           <div class="sixteen columns">
             <div class="search-container">
-              <!-- Form -->
-              <h2><strong>Tìm gia sư</strong></h2>
-              <input
-                type="text"
-                class="ico-01"
-                placeholder="Tìm theo tên giáo viên, keywords hoặc tên môn học"
-                value=""
-              />
-              <input
-                type="text"
-                class="ico-02"
-                placeholder="Tỉnh/Thành phố, Quận/huyện hoặc khu vực"
-                value=""
-              />
-              <button><i class="fa fa-search"></i></button>
-
               <!-- Browse Jobs -->
-              <div class="browse-jobs">
-                Duyệt các việc làm theo
-                <a href="browse-categories.html"> phân loại</a>
+              <div class="join_with_tutor">
+                <a href="videocall.html"> Vào học với gia sư thôi</a>
               </div>
             </div>
           </div>
@@ -74,48 +55,6 @@
 ================================================== -->
 
       <!-- Categories -->
-      <div class="container">
-        <div class="sixteen columns">
-          <h3 class="margin-bottom-25">Phân loại nổi bật</h3>
-          <ul id="popular-categories">
-            <li>
-              <a href="#"
-                ><i class="fa-solid fa-language"></i> Ngoại ngữ</a
-              >
-            </li>
-            <li>
-              <a href="#"><i class="fa-solid fa-school-flag"></i> Môn hàn lâm</a>
-            </li>
-            <li>
-              <a href="#"
-                ><i class="fa-solid fa-terminal"></i> Lập trình</a
-              >
-            </li>
-            <li>
-              <a href="#"
-                ><i class="fa fa-graduation-cap"></i> Ôn luyện học sinh giỏi</a
-              >
-            </li>
-            <li>
-              <a href="#"><i class="fa-solid fa-fax"></i> Kinh Doanh</a>
-            </li>
-            <li>
-              <a href="#"
-                ><i class="fa-solid fa-address-book"></i> Kỹ năng cá nhân</a
-              >
-            </li>
-          </ul>
-
-          <div class="clearfix"></div>
-          <div class="margin-top-30"></div>
-
-          <a href="browse-categories.html" class="button centered"
-            >Tìm các môn học</a
-          >
-          <div class="margin-bottom-50"></div>
-        </div>
-      </div>
-
       <div class="container">
         <!-- Recent Jobs -->
         <div class="eleven columns">
@@ -347,112 +286,12 @@
         </div>
       </div>
 
-      <!-- Testimonials -->
-      <div id="testimonials">
-        <!-- Slider -->
-        <div class="container">
-          <div class="sixteen columns">
-            <div class="testimonials-slider">
-              <ul class="slides">
-                <li>
-                  <p>
-                    <em>Hãy sống như thể bạn sẽ chết vào ngày mai. Hãy học như thể bạn sẽ sống mãi mãi.</em><span>– Mahatma Gandhi</span>
-                  </p>
-                </li>
-
-                <li>
-                  <p><em>Giáo dục là vũ khí mạnh mẽ nhất mà bạn có thể sử dụng để thay đổi thế giới.</em><span>– Nelson Mandela</span>
-                  </p>
-                </li>
-
-                <li>
-                  <p><em>Điều tuyệt vời nhất về việc học là không ai có thể lấy nó đi khỏi bạn.</em><span>– B.B. King</span>
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </div>
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <span class="close-popup">×</span>
+          <p>Chúng tôi khuyến nghị các học viên/gia sư/giáo viên sử dụng màn hình lớn để có trãi nghiệm tốt nhất khi học online!</p>
         </div>
       </div>
-
-      <!-- Recent Posts -->
-      <div class="container">
-        <div class="sixteen columns">
-          <h3 class="margin-bottom-25">Bài đăng gần đây</h3>
-        </div>
-
-        <div class="one-third column">
-          <!-- Post #1 -->
-          <div class="recent-post">
-            <div class="recent-post-img">
-              <a href="blog-single-post.html"
-                ><img src="images/recent-post-01.jpg" alt=""
-              /></a>
-              <div class="hover-icon"></div>
-            </div>
-            <a href="blog-single-post.html"
-              ><h4>Này bạn học, đến giờ học cùng gia sư rồi!</h4></a
-            >
-            <div class="meta-tags">
-              <span>October 10, 2024</span>
-              <span><a href="#">25 bình luận</a></span>
-            </div>
-            <p>
-              không có lời mô tả
-            </p>
-            <a href="blog-single-post.html" class="button">Đọc thêm</a>
-          </div>
-        </div>
-
-        <div class="one-third column">
-          <!-- Post #2 -->
-          <div class="recent-post">
-            <div class="recent-post-img">
-              <a href="blog-single-post.html"
-                ><img src="images/recent-post-02.jpg" alt=""
-              /></a>
-              <div class="hover-icon"></div>
-            </div>
-            <a href="blog-single-post.html"
-              ><h4>Làm thế nào để "thu hút" học viên chú ý đến hồ sơ của bạn</h4></a
-            >
-            <div class="meta-tags">
-              <span>September 12, 2024</span>
-              <span><a href="#">1 bình luận</a></span>
-            </div>
-            <p>
-              không có lời mô tả
-            </p>
-            <a href="blog-single-post.html" class="button">Đọc thêm</a>
-          </div>
-        </div>
-
-        <div class="one-third column">
-          <!-- Post #3 -->
-          <div class="recent-post">
-            <div class="recent-post-img">
-              <a href="blog-single-post.html"
-                ><img src="images/recent-post-03.jpg" alt=""
-              /></a>
-              <div class="hover-icon"></div>
-            </div>
-            <a href="blog-single-post.html"
-              ><h4>
-                Những tip để dạy học viên tốt và thu hút hơn
-              </h4></a
-            >
-            <div class="meta-tags">
-              <span>August 27, 2024</span>
-              <span><a href="#">150 bình luận</a></span>
-            </div>
-            <p>
-              không có lời mô tả
-            </p>
-            <a href="blog-single-post.html" class="button">Đọc thêm</a>
-          </div>
-        </div>
-      </div>
-
       <!-- Footer
 ================================================== -->
 <div class="margin-top-15"></div>
@@ -490,6 +329,80 @@
     <script src="https://cdn.jsdelivr.net/npm/jpanelmenu@1.2.0/dist/jPanelMenu.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stacktable/1.0.5/stacktable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-    <script src="scripts/calling.js"></script>
+
+    <script>
+        // Get the popup element
+        const popup = document.getElementById('popup');
+        // Get the button that opens the popup
+        const joinButton = document.querySelector('.join_with_tutor a');
+        // Get the close button of the popup
+        const closeButton = document.querySelector('.close-popup');
+
+        // Function to open the popup
+        function openPopup() {
+          popup.style.display = "block";
+        }
+
+        // Function to close the popup and redirect
+        function closePopup() {
+          popup.style.display = "none";
+          window.location.href = "videocall.html"; // Redirect to videocall.html
+        }
+
+        // Add event listeners
+        joinButton.addEventListener('click', (e) => {
+          e.preventDefault(); // Prevent default link behavior
+          openPopup();
+        });
+
+        closeButton.addEventListener('click', closePopup);
+
+        // Close popup when clicking outside of it and redirect
+        window.addEventListener('click', function(event) {
+          if (event.target == popup) {
+            closePopup();
+          }
+        });
+
+    </script>
+
+    <style>
+      /* Popup styles */
+      .popup {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+      }
+
+      .popup-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 30%; /* Adjust width as needed */
+        text-align: center;
+      }
+
+      .close-popup {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close-popup:hover,
+      .close-popup:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
+
   </body>
 </html>

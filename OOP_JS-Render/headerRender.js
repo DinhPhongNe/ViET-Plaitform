@@ -12,6 +12,7 @@ class Header {
             { name: 'Cho học viên', link: '#', subMenu: [
                 { name: 'Tìm gia sư', link: 'browse-jobs.html' },
                 { name: 'Tìm môn học', link: 'browse-categories.html' },
+                { name: 'Vào học cùng gia sư', link: 'join_call.html'}
             ]},
             { name: 'Cho gia sư', link: '#', subMenu: [
                 { name: 'Thêm việc làm', link: 'add-job.html' },
@@ -80,6 +81,8 @@ class Header {
             </div>
         `;
     }
+
+    
 
     render() {
         const headerContainer = document.getElementById('header-container');
