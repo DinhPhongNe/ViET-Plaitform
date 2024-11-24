@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Hỗ Trợ ViET</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/colors/cyan.css" id="colors" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" />
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="header-container"></div>
+    <div class="clearfix"></div>
+
+    <div id="titlebar" class="single">
+      <div class="container">
+        <div class="sixteen columns">
+          <h2>Hỗ trợ trực tuyến</h2>
+          <nav id="breadcrumbs">
+            <ul>
+              <li>Bạn ở đây:</li>
+              <li><a href="#">Trang chủ</a></li>
+              <li>Hỗ trợ trực tuyến</li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="sixteen columns">
+        <h3 class="margin-bottom-15">Trò chuyện với chúng tôi</h3>
+        <div id="chat-box">
+          <div id="chat-container">
+            <div id="chat-messages">
+              <!-- Các tin nhắn chat sẽ hiển thị ở đây -->
+            </div>
+            <input type="text" id="chat-input" placeholder="Gõ tin nhắn..." />
+            <button id="send-message" onclick="sendMessage()">Gửi</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer-container"></div>
+    <div id="backtotop"><a href="#"></a></div>
+  </div>
+
+  <script src="scripts/jquery-2.1.3.min.js"></script>
+  <script src="scripts/custom.js"></script>
+
+  <script>
+    // Hàm gửi tin nhắn
+    function sendMessage() {
+      var message = document.getElementById('chat-input').value;
+      if (message.trim() !== "") {
+        var chatMessages = document.getElementById('chat-messages');
+        var newMessage = document.createElement('div');
+        newMessage.classList.add('chat-message');
+        newMessage.classList.add('user-message');
+        newMessage.innerHTML = message;
+        chatMessages.appendChild(newMessage);
+
+        // Giả lập phản hồi từ nhân viên hỗ trợ
+        setTimeout(function() {
+          var response = document.createElement('div');
+          response.classList.add('chat-message');
+          response.classList.add('support-message');
+          response.innerHTML = "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ hỗ trợ bạn ngay.";
+          chatMessages.appendChild(response);
+        }, 1000);
+
+        // Clear input
+        document.getElementById('chat-input').value = "";
+      }
+    }
+
+    // Tự động cuộn xuống khi có tin nhắn mới
+    var chatBox = document.getElementById('chat-messages');
+    chatBox.scrollTop = chatBox.scrollHeight;
+  </script>
+
+  <style>
+    /* Định dạng chat box */
+    #chat-box {
+      border: 1px solid #ccc;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #chat-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    #chat-messages {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .chat-message {
+      padding: 10px;
+      border-radius: 5px;
+      max-width: 80%;
+      margin-bottom: 10px;
+    }
+
+    .user-message {
+      background-color: #cfe9ff;
+      align-self: flex-start;
+    }
+
+    .support-message {
+      background-color: #e6f7e6;
+      align-self: flex-end;
+    }
+
+    #chat-input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: calc(100% - 100px);
+      margin-right: 10px;
+    }
+
+    #send-message {
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      max-width: 90px;
+    }
+
+    #send-message:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script src="scripts/jquery-2.1.3.min.js"></script>
+  <script src="scripts/custom.js"></script>
+  <script src="scripts/jquery.superfish.js"></script>
+  <script src="scripts/jquery.themepunch.tools.min.js"></script>
+  <script src="scripts/jquery.themepunch.revolution.min.js"></script>
+  <script src="scripts/jquery.themepunch.showbizpro.min.js"></script>
+  <script src="scripts/jquery.flexslider-min.js"></script>
+  <script src="scripts/chosen.jquery.min.js"></script>
+  <script src="scripts/jquery.magnific-popup.min.js"></script>
+  <script src="scripts/waypoints.min.js"></script>
+  <script src="scripts/jquery.counterup.min.js"></script>
+  <script src="scripts/jquery.jpanelmenu.js"></script>
+  <script src="scripts/stacktable.js"></script>
+  <script src="OOP_JS-Render/headerRender.js"></script>
+  <script src="OOP_JS-Render/footerRender.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/responsive-elements/1.0.2/responsive-elements.min.js" integrity="sha512-4EEhTgTsRNAlk47ymSP/SpkKMgK0/SgMCn63uVPAKm7ctnjkAz0bHFClzF2uzYrowq0C+TLRxnQwJcbYSFUssQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/response.js/0.10.1/response.min.js" integrity="sha512-3oQSIvnfs9CoWMjytvn4nVXfYmPPA5bxxgL+psg0hLZ7VpMZ6nWcDB3yyN9efSgAEMBvS7G5URv63AhTZ5mpzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>

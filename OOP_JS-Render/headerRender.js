@@ -6,7 +6,8 @@ class Header {
             { name: 'Trang', link: '#', subMenu: [
                 { name: 'Hồ sơ của bạn', link: 'resume-page.html' },
                 { name: 'Bảng gói kế hoạch', link: 'pricing-tables.html' },
-                { name: 'Liên hệ', link: 'contact.html' }
+                { name: 'Liên hệ', link: 'contact.html' },
+                { name: 'Chăm sóc khách hàng', link: 'customer_services.html'}
             ]},
             { name: 'Cho học viên', link: '#', subMenu: [
                 { name: 'Tìm gia sư', link: 'browse-jobs.html' },
