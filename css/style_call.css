@@ -120,13 +120,21 @@ body.dark .btn-close-right {
   transition: 0.2s ease-in;
 }
 .right-side {
-  margin-left: auto;
-  flex-basis: 400px;
-  height: 100%;
+  flex: 0 0 350px; /* Fixed width */
   padding: 16px;
-  position: relative;
-  transition: all 300ms cubic-bezier(0.19, 1, 0.56, 1);
+  display: flex;
+  flex-direction: column;
+  /*Added below*/
+  overflow-y: auto; /* Enable scrolling if content exceeds height */
 }
+
+.right-side {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 .right-side.show {
   display: block;
   transform: translateX(0);
@@ -507,7 +515,16 @@ body.dark .btn-close-right {
 /*  Start of Media Queries from style.css */
 /* Standard 1180 (devices and browsers) */
 @media only screen and (min-width: 1200px){
-
+  @media (max-width: 1200px) {
+    .app-container {
+        grid-template-columns: 1fr; /* Stack elements vertically */
+        grid-template-rows: auto 1fr auto; /* Main content, navigation bar */
+    }
+    .left-side, .video-call-wrapper, .right-side, #whiteboard-container {
+        grid-column: 1 / 2; /* Each element takes the full width */
+        grid-row: auto;
+    }
+}
 }
 
 
@@ -969,4 +986,110 @@ cursor: pointer;
 
 .camera-popup button:hover {
   background-color: #e8e8e8;
+}
+
+
+.file-upload-progress {
+  display: none; /* Hidden until upload starts */
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 5px;
+  margin-top: 5px;
+  height: 10px;
+}
+.file-upload-progress-bar {
+  height: 100%;
+  background-color: #4CAF50;
+  width: 0%;
+  border-radius: 5px;
+}
+
+.wifi-indicator {
+  margin-top: 10px;
+}
+.wifi-bar {
+  height: 10px;
+  background-color: #4CAF50;
+  width: 100%; /* Initially full strength */
+  border-radius: 5px;
+}
+
+.whiteboard-container {
+  grid-column: 4 / 5;
+  grid-row: 1 / 2;
+  padding: 10px;
+  border-radius: 10px;
+  display: none;
+}
+
+.whiteboard {
+border: 1px solid #ccc;
+border-radius: 8px;
+width: 100%;
+height: 100%; /* Fill the container */
+}
+.whiteboard-container button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.whiteboard-container input[type="color"] {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Style for the dropdown menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown button:hover {
+  background-color: #45a049;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  bottom: 100%; /* Đưa dropdown lên trên */
+  left: 0; /* Đảm bảo dropdown hiển thị ở đúng vị trí */
+}
+
+/* Show the dropdown menu on click */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content button {
+  background-color: white;
+  color: black;
+  padding: 12px 16px;
+  font-size: 14px;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown-content button:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on click */
+.dropdown:hover .dropdown-content {
+  display: block;
 }

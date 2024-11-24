@@ -278,3 +278,119 @@ document.head.appendChild(style);
 const username = 'Nguyễn Văn A';  // Ví dụ tên người dùng
 
 cameraPopupMessage.textContent = username + ' đã tắt camera';
+const chatArea = document.querySelector('.chat-area');
+const chatInput = document.querySelector('.chat-input');
+const sendButton = document.querySelector('.send-button');
+
+sendButton.addEventListener('click', sendMessage);
+chatInput.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+});
+
+function sendMessage() {
+  const message = chatInput.value;
+  if (message.trim() !== '') {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('chat-message', 'sent'); // Add 'sent' class
+    messageElement.textContent = message;
+    chatArea.appendChild(messageElement);
+    chatInput.value = '';
+
+    // Simulate sending the message over peer connection
+    peer.send(message); 
+  }
+}
+
+whiteboardCanvas.on('object:added', (e) => {
+  if (peer && e.target.type === 'line') {
+      const data = {
+          type: 'draw',
+          x1: e.target.x1,
+          y1: e.target.y1,
+          x2: e.target.x2,
+          y2: e.target.y2,
+          stroke: e.target.stroke,
+          strokeWidth: e.target.strokeWidth,
+      };
+      peer.send(JSON.stringify(data)); // Send as JSON
+  }
+});
+
+peer.on('data', data => {
+  if (typeof data === 'string') {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('chat-message', 'received'); // Add 'received' class
+    messageElement.textContent = data;
+    chatArea.appendChild(messageElement);
+  } else if (data instanceof File) {
+      // Handle file (simulated)
+      console.log("Received file:", data.name);
+      // In a real application, you'd use a server to handle this
+  } else {
+    console.log("Received:", data);
+  }
+  try {
+    const parsedData = JSON.parse(data);
+    if (parsedData.type === 'draw') {
+        const line = new fabric.Line([parsedData.x1, parsedData.y1, parsedData.x2, parsedData.y2], {
+            stroke: parsedData.stroke,
+            strokeWidth: parsedData.strokeWidth,
+            strokeLineCap: 'round',
+            selectable: false,
+        });
+        whiteboardCanvas.add(line);
+        whiteboardCanvas.renderAll();
+    }
+} catch (error) {
+    console.error("Error parsing whiteboard data:", error);
+}
+});
+
+
+// File upload (simulated)
+const fileInput = document.createElement('input');
+fileInput.type = 'file';
+fileInput.style.display = 'none'; // Hide the input
+document.body.appendChild(fileInput);
+
+const fileUploadProgress = document.createElement('div');
+fileUploadProgress.classList.add('file-upload-progress');
+const fileUploadProgressBar = document.createElement('div');
+fileUploadProgressBar.classList.add('file-upload-progress-bar');
+fileUploadProgress.appendChild(fileUploadProgressBar);
+document.querySelector('.chat-typing-area').appendChild(fileUploadProgress);
+
+sendButton.parentNode.insertBefore(fileInput, sendButton); //Insert Before Send Button
+
+
+fileInput.addEventListener('change', () => {
+  const file = fileInput.files[0];
+  if (file) {
+    fileUploadProgress.style.display = 'block';
+
+    let progress = 0;
+    const uploadInterval = setInterval(() => {
+      progress += 10;
+      fileUploadProgressBar.style.width = `${progress}%`;
+      if (progress >= 100) {
+        clearInterval(uploadInterval);
+        fileUploadProgress.style.display = 'none';
+        console.log('File uploaded:', file.name);
+        peer.send(file); 
+      }
+    }, 500);
+  }
+});
+
+
+localStream.getAudioTracks()[0].onmute = () => {
+  alert('Microphone muted!');
+};
+
+const wifiBar = document.querySelector('.wifi-bar');
+setInterval(() => {
+  const strength = Math.floor(Math.random() * 100);
+  wifiBar.style.width = `${strength}%`;
+}, 2000);

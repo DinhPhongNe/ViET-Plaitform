@@ -312,6 +312,9 @@
           </div>
         </div>
       </div>
+      <div id="whiteboard-container"  style="display: none;">
+        <canvas id="whiteboard" width="500" height="870"></canvas>
+      </div>    
       <button class="expand-btn">
       </button>
     </div>
@@ -376,10 +379,16 @@
         <div class="popup-content">
             <p id="camera-popup-message">Camera đã tắt</p>
             <button id="close-popup">Đóng</button>
-        </div>
+        </div>        
+    </div>
+
+    <div class="wifi-indicator">
+      <div class="wifi-bar"></div>
     </div>
     
     <script src="scripts/calling.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-peer@latest/simplepeer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
+    <script src="scripts/whiteboard.js"></script> </body>
   </body>
 </html>
