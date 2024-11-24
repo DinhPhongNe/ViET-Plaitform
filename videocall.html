@@ -195,8 +195,11 @@
       </div>
       <div class="app-main">
         <div class="video-call-wrapper">
-            <video id="video" class="video_left"></video>
-            <video id="video_2" class="video_right"></video>
+            <!-- Video của giáo viên (video chính) -->
+            <video id="video" class="video_left main_video" autoplay></video>
+            
+            <!-- Video của học sinh (video nhỏ) -->
+            <video id="video_2" class="video_right floating_video" autoplay></video>
         </div>
 
         <div class="video-call-actions">
@@ -313,7 +316,7 @@
         </div>
       </div>
       <div id="whiteboard-container"  style="display: none;">
-        <canvas id="whiteboard" width="500" height="870"></canvas>
+        <canvas id="whiteboard" width="500" height="500"></canvas>
       </div>    
       <button class="expand-btn">
       </button>

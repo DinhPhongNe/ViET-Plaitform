@@ -1,12 +1,10 @@
 const modeSwitchBtn = document.querySelector('.mode-switch');
 const body = document.body;
 
-// Function to toggle dark mode
 function toggleDarkMode() {
     body.classList.toggle('dark');
-    localStorage.setItem('darkMode', body.classList.contains('dark')); // Store preference
+    localStorage.setItem('darkMode', body.classList.contains('dark'));
 
-    // Update sun/moon icon visibility (optional)
     const sunIcon = document.querySelector('.mode-switch .sun');
     const moonIcon = document.querySelector('.mode-switch .moon');
     sunIcon.style.opacity = body.classList.contains('dark') ? 0 : 1;
@@ -16,10 +14,8 @@ function toggleDarkMode() {
     moonIcon.style.width = body.classList.contains('dark') ? '24px' : 0;
 }
 
-// Add event listener for the mode switch button
 modeSwitchBtn.addEventListener('click', toggleDarkMode);
 
-// Check for stored preference on load
 const darkMode = localStorage.getItem('darkMode');
 if (darkMode === 'true') {
     toggleDarkMode();
@@ -39,7 +35,6 @@ function startCamera() {
     var video_2 = document.getElementById("video_2");
 
     function successCallback(stream) {
-        // Set the source of the video element with the stream from the camera
         if (video.mozSrcObject !== undefined) {
             video.mozSrcObject = stream;
             video_2.mozSrcObject = stream;
@@ -73,7 +68,6 @@ const feedbackForm = document.getElementById('feedback-form');
 const successModal = document.getElementById('success-modal');
 const closeSuccessBtn = document.getElementById('close-success');
 
-// Show the feedback modal
 endCallBtn.addEventListener('click', (e) => {
     e.preventDefault();
     feedbackModal.classList.add('active');
@@ -103,7 +97,6 @@ closeSuccessBtn.addEventListener('click', () => {
     window.location.href = 'join_call.html';
 });
 
-// Video call setup
 const video = document.getElementById('video');
 const video2 = document.getElementById('video_2');
 const micButton = document.querySelector('.mic');
@@ -113,7 +106,6 @@ const cameraPopup = document.getElementById('camera-popup');
 const closePopupButton = document.getElementById('close-popup');
 const cameraPopupMessage = document.getElementById('camera-popup-message');
 
-// Audio level indicator
 const audioLevelContainer = document.createElement('div');
 audioLevelContainer.classList.add('audio-level-indicator');
 const audioLevelBar = document.createElement('div');
@@ -126,18 +118,15 @@ let peer;
 let isMicEnabled = true;
 let isCameraEnabled = true;
 
-// Start video stream and setup peer connection
 navigator.mediaDevices.getUserMedia({ video: true, audio: true })
   .then(stream => {
     localStream = stream;
     video.srcObject = stream;
     video.play();
 
-    // Set initial mic and camera button states
     updateMicButtonState();
     updateCameraButtonState();
 
-    // SimplePeer setup (replace with your actual signaling server logic)
     peer = new SimplePeer({ initiator: true, stream: stream });
     peer.on('signal', data => {
       console.log('Signal:', data);
@@ -160,88 +149,75 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
     console.error('Error accessing media devices:', err);
   });
 
-// Mic button event listener
 micButton.addEventListener('click', () => {
   isMicEnabled = !isMicEnabled;
   localStream.getAudioTracks()[0].enabled = isMicEnabled;
   updateMicButtonState();
 });
 
-// Camera button event listener
 cameraButton.addEventListener('click', () => {
   isCameraEnabled = !isCameraEnabled;
 
   if (isCameraEnabled) {
-      // Mở lại camera
       navigator.mediaDevices.getUserMedia({ video: true })
           .then(stream => {
               video.srcObject = stream;
               video.play();
               updateCameraButtonState();
-              
-              // Hiển thị thông báo Camera đã mở
+            
               cameraPopupMessage.textContent = 'Camera đã mở';
               cameraPopup.style.display = 'flex';
-              cameraPopup.style.animation = 'slideIn 0.5s ease-out forwards';  // Thêm animation
+              cameraPopup.style.animation = 'slideIn 0.5s ease-out forwards';
           })
           .catch(err => {
               console.error('Không thể mở camera:', err);
           });
   } else {
-      // Tắt camera
       if (localStream) {
           localStream.getVideoTracks().forEach(track => track.enabled = false);
       }
       updateCameraButtonState();
       video.srcObject = null;
-
-      // Hiển thị thông báo Camera đã tắt
       cameraPopupMessage.textContent = 'Camera đã tắt';
       cameraPopup.style.display = 'flex';
-      cameraPopup.style.animation = 'slideIn 0.5s ease-out forwards';  // Thêm animation
+      cameraPopup.style.animation = 'slideIn 0.5s ease-out forwards';
   }
 });
 
 closePopupButton.addEventListener('click', () => {
-  // Thêm hiệu ứng trượt ra
   cameraPopup.style.animation = 'slideOut 0.5s ease-in forwards';
   setTimeout(() => {
-      cameraPopup.style.display = 'none';  // Ẩn popup sau khi hiệu ứng kết thúc
-  }, 500);  // Thời gian trùng với thời gian animation
+      cameraPopup.style.display = 'none';
+  }, 500);
 });
 
 function updateCameraButtonState() {
   cameraButton.classList.toggle('camera-off', !isCameraEnabled);
 }
 
-// End call button
 endCallButton.addEventListener('click', () => {
   localStream.getTracks().forEach(track => track.stop());
   if (peer) peer.destroy();
 });
 
-// Update mic button state
 function updateMicButtonState() {
   micButton.classList.toggle('muted', !isMicEnabled);
 }
 
-// Update camera button state
 function updateCameraButtonState() {
   cameraButton.classList.toggle('camera-off', !isCameraEnabled);
 }
 
-// Simple audio level meter (replace with a more sophisticated one if needed)
 localStream.getAudioTracks()[0].onended = () => {
   audioLevelBar.style.width = '0%';
 };
 
 setInterval(() => {
   const level = getAudioLevel(localStream.getAudioTracks()[0]);
-  const width = Math.max(0, Math.min(100, level * 100)); // Scale to 0-100%
+  const width = Math.max(0, Math.min(100, level * 100));
   audioLevelBar.style.width = `${width}%`;
 }, 100);
 
-// Get the audio level from the stream
 function getAudioLevel(track) {
   if (track.analyser) {
       track.analyser.getFloatTimeDomainData(track.dataArray);
@@ -254,7 +230,6 @@ function getAudioLevel(track) {
   return 0;
 }
 
-// Add CSS for audio level indicator
 const style = document.createElement('style');
 style.innerHTML = `
   .audio-level-indicator {
@@ -275,7 +250,7 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
-const username = 'Nguyễn Văn A';  // Ví dụ tên người dùng
+const username = 'Nguyễn Văn A';
 
 cameraPopupMessage.textContent = username + ' đã tắt camera';
 const chatArea = document.querySelector('.chat-area');
@@ -293,12 +268,11 @@ function sendMessage() {
   const message = chatInput.value;
   if (message.trim() !== '') {
     const messageElement = document.createElement('div');
-    messageElement.classList.add('chat-message', 'sent'); // Add 'sent' class
+    messageElement.classList.add('chat-message', 'sent');
     messageElement.textContent = message;
     chatArea.appendChild(messageElement);
     chatInput.value = '';
 
-    // Simulate sending the message over peer connection
     peer.send(message); 
   }
 }
@@ -314,20 +288,18 @@ whiteboardCanvas.on('object:added', (e) => {
           stroke: e.target.stroke,
           strokeWidth: e.target.strokeWidth,
       };
-      peer.send(JSON.stringify(data)); // Send as JSON
+      peer.send(JSON.stringify(data));
   }
 });
 
 peer.on('data', data => {
   if (typeof data === 'string') {
     const messageElement = document.createElement('div');
-    messageElement.classList.add('chat-message', 'received'); // Add 'received' class
+    messageElement.classList.add('chat-message', 'received');
     messageElement.textContent = data;
     chatArea.appendChild(messageElement);
   } else if (data instanceof File) {
-      // Handle file (simulated)
       console.log("Received file:", data.name);
-      // In a real application, you'd use a server to handle this
   } else {
     console.log("Received:", data);
   }
@@ -348,11 +320,9 @@ peer.on('data', data => {
 }
 });
 
-
-// File upload (simulated)
 const fileInput = document.createElement('input');
 fileInput.type = 'file';
-fileInput.style.display = 'none'; // Hide the input
+fileInput.style.display = 'none';
 document.body.appendChild(fileInput);
 
 const fileUploadProgress = document.createElement('div');
@@ -362,7 +332,7 @@ fileUploadProgressBar.classList.add('file-upload-progress-bar');
 fileUploadProgress.appendChild(fileUploadProgressBar);
 document.querySelector('.chat-typing-area').appendChild(fileUploadProgress);
 
-sendButton.parentNode.insertBefore(fileInput, sendButton); //Insert Before Send Button
+sendButton.parentNode.insertBefore(fileInput, sendButton);
 
 
 fileInput.addEventListener('change', () => {
@@ -384,7 +354,6 @@ fileInput.addEventListener('change', () => {
   }
 });
 
-
 localStream.getAudioTracks()[0].onmute = () => {
   alert('Microphone muted!');
 };
@@ -394,3 +363,30 @@ setInterval(() => {
   const strength = Math.floor(Math.random() * 100);
   wifiBar.style.width = `${strength}%`;
 }, 2000);
+
+const videoSmall = document.getElementById("video_2");
+
+let isDragging = false;
+let offsetX, offsetY;
+
+videoSmall.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  offsetX = e.clientX - videoSmall.offsetLeft;
+  offsetY = e.clientY - videoSmall.offsetTop;
+
+  document.addEventListener("mousemove", onMouseMove);
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+    document.removeEventListener("mousemove", onMouseMove);
+  });
+});
+
+function onMouseMove(e) {
+  if (isDragging) {
+    const newX = e.clientX - offsetX;
+    const newY = e.clientY - offsetY;
+
+    videoSmall.style.left = newX + "px";
+    videoSmall.style.top = newY + "px";
+  }
+}
