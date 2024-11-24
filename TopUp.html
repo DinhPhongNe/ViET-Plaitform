@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ViET - Nạp thêm số dư</title>
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/payment.css" />
+	<link rel="stylesheet" href="css/topup.css">
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<img src="images/logo.png" alt="">
+					<h3>NẠP THÊM SỐ DƯ</h3>
+					<form id="payment-form">
+						<div class="form-group">
+							<label for="fullName">Họ tên đầy đủ</label>
+							<input type="text" class="form-control" id="fullName"
+								placeholder="Nhập đầy đủ họ tên...">
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" class="form-control" id="email" placeholder="Nhập email...">
+						</div>
+						<div class="form-group">
+							<label for="address">Địa chỉ</label>
+							<input type="text" class="form-control" id="address" placeholder="Nhập địa chỉ...">
+						</div>
+						<div class="form-group">
+							<label for="city">Tỉnh/Thành phố</label>
+							<input type="text" class="form-control" id="city" placeholder="Nhập Tỉnh/Thành phố...">
+						</div>
+						<div class="form-group">
+							<label for="district">Quận/huyện</label>
+							<input type="text" class="form-control" id="district" placeholder="Nhập Quận/huyện...">
+						</div>
+						<div class="form-group">
+							<label for="cardNumber">Lời nhắn</label>
+							<input type="text" class="form-control" id="messages"
+								placeholder="Nhập lời nhắn ( không bắt buộc )...">
+						</div>
+					</form>
+				</div>
+
+				<div class="col-md-6">
+					<form>
+
+						<div class="form-group">
+							<h3>Ngân hàng hỗ trợ</h3>
+							<img src="images/card02.png" class="img-fluid" width="350" alt="Accepted Cards">
+						</div>
+						<div class="form-group">
+							<label for="payment-bank">Chọn ngân hàng</label>
+							<select id="payment-bank" class="form-control">
+								<option value="">Chọn ngân hàng</option>
+								<option value="Techcombank">Ngân hàng Techcombank</option>
+								<option value="BIDV">Ngân hàng BIDV</option>
+								<option value="ABC">Ngân hàng ACB</option>
+								<option value="MB">Ngân hàng MB</option>
+								<option value="Agribank">Ngân hàng Agribank</option>
+								<option value="Sacombank">Ngân hàng Sacombank</option>
+								<option value="VietinBank">Ngân hàng VietinBank</option>
+								<option value="Vietcombank">Ngân hàng Vietcombank</option>
+								<option value="SHB">Ngân hàng SHB</option>
+								<option value="VPBank">Ngân hàng VPBank</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="cardNumber">Số thẻ tín dụng</label>
+							<input type="text" class="form-control" id="cardNumber"
+								placeholder="Nhập số thẻ tín dụng...">
+						</div>
+						<div class="form-group">
+							<label for="paymentAmount">Nhập số tiền muốn nạp</label>
+							<input type="text" class="form-control" id="paymentAmount"
+								placeholder="Nhập số thẻ tín dụng...">
+						</div>
+						<div class="form-group">
+							<label for="expMonth">Tháng hết hạn</label>
+							<input type="text" class="form-control" id="expMonth"
+								placeholder="Nhập tháng hết hạn...">
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="expYear">Năm hết hạn</label>
+								<select id="expYear" class="form-control">
+									<option selected>Chọn năm...</option>
+								</select>
+							</div>
+							<div class="form-group col-md-6">
+								<label for="cvv">CVV</label>
+								<input type="number" class="form-control" id="cvv" placeholder="CVV">
+							</div>
+						</div>
+						<a href="javascript:void(0)" id="payment-btn" class="btn btn-primary btn-block">Thanh toán</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div id="payment-confirmation" class="payment-popup">
+		<div class="popup-content">
+			<h4>Bạn có chắc chắn muốn nạp không?</h4>
+			<div id="countdown"></div>
+			<div class="popup-buttons">
+				<button id="cancel-payment" class="btn btn-danger">Hủy</button>
+				<button id="confirm-payment" class="btn btn-success" style="display:none;">Chắc chắn</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="payment-popup" class="payment-popup">
+		<div class="popup-content">
+			<h4>Đang xử lý yêu cầu nạp...</h4>
+			<div class="progress">
+				<div id="payment-progress" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
+					aria-valuemin="0" aria-valuemax="100"></div>
+			</div>
+			<button id="complete-payment" class="btn btn-success" style="display: none;">Hoàn thành</button>
+		</div>
+	</div>
+
+
+	<div id="payment-popup" class="payment-popup">
+		<div class="popup-content">
+			<h4>Đang xử lý thanh toán...</h4>
+			<div class="progress">
+				<div id="payment-progress" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
+					aria-valuemin="0" aria-valuemax="100"></div>
+			</div>
+			<button id="complete-payment" class="btn btn-success" style="display: none;">Hoàn thành</button>
+		</div>
+	</div>
+
+	<div id="error-popup" class="error-popup alert alert-danger alert-dismissible fade show" role="alert">
+		<strong>Lỗi!</strong> Vui lòng điền đầy đủ thông tin.
+	</div>
+
+	<div id="payment-invoice" style="display: none;">
+		<h4>Hóa đơn thanh toán</h4>
+		<p><strong>Họ tên:</strong> <span id="invoice-fullName"></span></p>
+		<p><strong>Email:</strong> <span id="invoice-email"></span></p>
+		<p><strong>Địa chỉ:</strong> <span id="invoice-address"></span></p>
+		<p><strong>Thành phố:</strong> <span id="invoice-city"></span></p>
+		<p><strong>Quận/Huyện:</strong> <span id="invoice-district"></span></p>
+		<p><strong>Lời nhắn:</strong> <span id="invoice-messages"></span></p>
+		<p><strong>Số tiền đã nạp:</strong> <span id="invoice-amount"></span></p>
+		<button id="complete-invoice">Hoàn tất</button>
+	</div>
+
+	<div id="success-popup" class="success-popup alert alert-success alert-dismissible fade show" role="alert">
+		<strong>Thành công!</strong> Thanh toán đã được xử lý.
+	</div>
+
+
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-superfish/1.7.10/js/superfish.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jpanelmenu@1.2.0/dist/jPanelMenu.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/stacktable/1.0.5/stacktable.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/responsive-elements/1.0.2/responsive-elements.min.js"
+		integrity="sha512-4EEhTgTsRNAlk47ymSP/SpkKMgK0/SgMCn63uVPAKm7ctnjkAz0bHFClzF2uzYrowq0C+TLRxnQwJcbYSFUssQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/response.js/0.10.1/response.min.js"
+		integrity="sha512-3oQSIvnfs9CoWMjytvn4nVXfYmPPA5VxFeAFGEHWgN6SeyYoooVyMItxLvCldTq8143J43NYXwF1XfmVvqkmVQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/3.39.0/minified.js"
+		integrity="sha512-qc8tnhnrlWqffX6ObbRcniCPRG9xwBKf4n0h4Bs9jMyTEz1i6X+rhd2+GMGP7sIDjNnghryql3CYXLYb3XcdhA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="scripts/TopUp.js"></script>
+</body>
+
+</body>
+
+</html>

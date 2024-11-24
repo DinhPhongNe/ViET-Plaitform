@@ -1,4 +1,3 @@
-// Class Header sẽ quản lý tất cả các phần của header
 class Header {
     constructor() {
         this.logo = 'images/logo.png';
@@ -12,14 +11,17 @@ class Header {
             { name: 'Cho học viên', link: '#', subMenu: [
                 { name: 'Tìm gia sư', link: 'browse-jobs.html' },
                 { name: 'Tìm môn học', link: 'browse-categories.html' },
-                { name: 'Vào học cùng gia sư', link: 'join_call.html'}
+                { name: 'Vào học cùng gia sư', link: 'join_call.html' }
             ]},
             { name: 'Cho gia sư', link: '#', subMenu: [
                 { name: 'Thêm việc làm', link: 'add-job.html' },
                 { name: 'Quản lý học viên', link: 'manage-applications.html' }
             ]},
             { name: 'Blog', link: 'blog.html' },
-            { name: 'Nạp tiền', link: ''}
+            { name: 'Số dư', link: '#', subMenu: [
+                { name: 'Nạp thêm tiền', link: 'TopUp.html' },
+                { name: 'Số dư còn lại: ', id: 'balance-display', link: '404.html' }
+            ]},
         ];
         this.loginLinks = [
             { icon: 'fa-user', text: 'Đăng ký', link: 'my-account.html#tab2' },
@@ -49,7 +51,7 @@ class Header {
                         <a href="${item.link}">${item.name}</a>
                         <ul>
                             ${item.subMenu.map(sub => `
-                                <li><a href="${sub.link}">${sub.name}</a></li>
+                                <li><a href="${sub.link}" id="${sub.id || ''}">${sub.name}</a></li>
                             `).join('')}
                         </ul>
                     </li>
@@ -83,6 +85,15 @@ class Header {
         `;
     }
 
+    // Hàm cập nhật số dư hiển thị trên menu
+    updateBalanceDisplay(balance) {
+        const balanceElement = document.getElementById('balance-display');
+        if (balanceElement) {
+            // Dùng Intl.NumberFormat để format số tiền
+            const formattedBalance = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(balance);
+            balanceElement.textContent = `Số dư còn lại: ${formattedBalance}`;
+        }
+    }
     
 
     render() {
@@ -99,9 +110,21 @@ class Header {
                 </div>
             </div>
         `;
+    
+        // Cập nhật số dư khi load trang
+        const balance = localStorage.getItem('balance') ? parseInt(localStorage.getItem('balance')) : 0;
+        this.updateBalanceDisplay(balance); // Hiển thị số dư đã cộng vào
     }
 }
 
 // Khởi tạo và render Header
 const header = new Header();
 header.render();
+
+// // Lưu số dư sau khi thanh toán
+// const paymentAmount = 1000; // Ví dụ: người dùng thanh toán 1000 VND
+// let currentBalance = localStorage.getItem('balance') ? parseInt(localStorage.getItem('balance')) : 0;
+// currentBalance += paymentAmount; // Cộng thêm số tiền thanh toán vào số dư hiện tại
+
+// // Lưu lại số dư mới vào localStorage
+// localStorage.setItem('balance', currentBalance);

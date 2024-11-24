@@ -1,0 +1,17 @@
+:root {
+	--black: #030102;
+	--grey: #9ea8bd;
+	--grey2: #e2e6ee;
+	--primary: #ca097a;
+	--white: #ffffff;
+}
+
+
+.body {
+	background-color: var(--primary);
+	border-radius: 20px;
+	height: 597px;
+	width: 360px;
+	padding: 30px;
+	box-sizing: border-box;
+}
