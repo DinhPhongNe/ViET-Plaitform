@@ -114,6 +114,7 @@ audioLevelContainer.appendChild(audioLevelBar);
 document.querySelector('.video-call-wrapper').appendChild(audioLevelContainer);
 
 let localStream;
+let remoteStream;
 let peer;
 let isMicEnabled = true;
 let isCameraEnabled = true;
@@ -124,14 +125,17 @@ navigator.mediaDevices.getUserMedia({ video: true, audio: true })
     video.srcObject = stream;
     video.play();
 
+    const audioTrack = stream.getAudioTracks()[0];
+
     updateMicButtonState();
-    updateCameraButtonState();
 
     peer = new SimplePeer({ initiator: true, stream: stream });
+
     peer.on('signal', data => {
       console.log('Signal:', data);
     });
-    peer.on('stream', remoteStream => {
+    peer.on('stream', remoteStreamData => {
+      remoteStream = remoteStreamData;
       video2.srcObject = remoteStream;
       video2.play();
     });
@@ -155,34 +159,72 @@ micButton.addEventListener('click', () => {
   updateMicButtonState();
 });
 
-cameraButton.addEventListener('click', () => {
-  isCameraEnabled = !isCameraEnabled;
+let isCamera2Enabled = true;  // Trạng thái ban đầu là camera 2 đã mở
+let camera2Stream = null;  // Lưu stream của camera 2
 
-  if (isCameraEnabled) {
-      navigator.mediaDevices.getUserMedia({ video: true })
-          .then(stream => {
-              video.srcObject = stream;
-              video.play();
-              updateCameraButtonState();
-            
-              cameraPopupMessage.textContent = 'Camera đã mở';
-              cameraPopup.style.display = 'flex';
-              cameraPopup.style.animation = 'slideIn 0.5s ease-out forwards';
-          })
-          .catch(err => {
-              console.error('Không thể mở camera:', err);
-          });
+window.onload = () => {
+  // Khi trang được load, đảm bảo camera 2 được mở và nút hiển thị đúng trạng thái
+  if (isCamera2Enabled) {
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        camera2Stream = stream;
+        video2.srcObject = camera2Stream;
+        video2.play();
+
+        cameraPopupMessage.textContent = 'Camera 2 đã mở';
+        cameraPopup.style.display = 'flex';
+        cameraPopup.style.animation = 'slideIn 0.5s ease-out forwards';
+
+        updateCameraButtonState();  // Cập nhật trạng thái nút
+      })
+      .catch(err => {
+        console.error('Không thể mở camera 2:', err);
+      });
+  }
+};
+
+cameraButton.addEventListener('click', () => {
+  isCamera2Enabled = !isCamera2Enabled;  // Chuyển trạng thái của camera 2
+
+  if (isCamera2Enabled) {
+    // Nếu camera 2 được bật, lấy media stream của camera 2
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        camera2Stream = stream;
+        video2.srcObject = camera2Stream;
+        video2.play();
+
+        cameraPopupMessage.textContent = 'Camera 2 đã mở';
+        cameraPopup.style.display = 'flex';
+        cameraPopup.style.animation = 'slideIn 0.5s ease-out forwards';
+
+        updateCameraButtonState();  // Cập nhật trạng thái nút
+      })
+      .catch(err => {
+        console.error('Không thể mở camera 2:', err);
+      });
   } else {
-      if (localStream) {
-          localStream.getVideoTracks().forEach(track => track.enabled = false);
-      }
-      updateCameraButtonState();
-      video.srcObject = null;
-      cameraPopupMessage.textContent = 'Camera đã tắt';
-      cameraPopup.style.display = 'flex';
-      cameraPopup.style.animation = 'slideIn 0.5s ease-out forwards';
+    // Nếu camera 2 bị tắt, stop stream của camera 2
+    if (camera2Stream) {
+      const tracks = camera2Stream.getTracks();
+      tracks.forEach(track => track.stop());
+      video2.srcObject = null;
+      camera2Stream = null;
+    }
+
+    cameraPopupMessage.textContent = 'Camera 2 đã tắt';
+    cameraPopup.style.display = 'flex';
+    cameraPopup.style.animation = 'slideIn 0.5s ease-out forwards';
+
+    updateCameraButtonState();  // Cập nhật trạng thái nút
   }
 });
+
+function updateCameraButtonState() {
+  // Nếu camera 2 đang mở, nút camera sẽ có trạng thái mở
+  cameraButton.classList.toggle('camera-off', !isCamera2Enabled);
+}
+
 
 closePopupButton.addEventListener('click', () => {
   cameraPopup.style.animation = 'slideOut 0.5s ease-in forwards';
@@ -202,10 +244,6 @@ endCallButton.addEventListener('click', () => {
 
 function updateMicButtonState() {
   micButton.classList.toggle('muted', !isMicEnabled);
-}
-
-function updateCameraButtonState() {
-  cameraButton.classList.toggle('camera-off', !isCameraEnabled);
 }
 
 localStream.getAudioTracks()[0].onended = () => {

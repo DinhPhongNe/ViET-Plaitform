@@ -319,11 +319,10 @@ body.dark .btn-close-right {
 .main_video {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 0; /* Ensures fill from borders without offsetting */
+  width: 100%;  
   height: 100%;
-  object-fit: cover;
-  z-index: 1;
+  object-fit: fill; /* FIll is ideal to take total size */ z-index: 1 /* Placed for testing purpose remove freely */;
 }
 
 .floating_video {
@@ -365,7 +364,6 @@ body.dark .btn-close-right {
 
 .video_left,
 .video_right {
-  width: 48%;
   aspect-ratio: 16/9;
   background: black;
   object-fit: cover;

@@ -20,7 +20,8 @@
                     <form id="payment-form">
                         <div class="form-group">
                             <label for="fullName">Họ tên đầy đủ</label>
-                            <input type="text" class="form-control" id="fullName" placeholder="Nhập đầy đủ họ tên...">
+                            <input type="text" class="form-control" id="fullName"
+                                placeholder="Nhập đầy đủ họ tên...">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
@@ -38,47 +39,51 @@
                             <label for="district">Quận/huyện</label>
                             <input type="text" class="form-control" id="district" placeholder="Nhập Quận/huyện...">
                         </div>
-						<div class="form-group">
+                        <div class="form-group">
                             <label for="cardNumber">Số tiền của gói</label>
-                            <input type="text" class="form-control" id="cardNumber" placeholder="Nhập số tiền của gói...">
+                            <input type="text" class="form-control" id="cardNumber"
+                                placeholder="Nhập số tiền của gói...">
                         </div>
-						<div class="form-group">
+                        <div class="form-group">
                             <label for="cardNumber">Lời nhắn</label>
-                            <input type="text" class="form-control" id="messages" placeholder="Nhập lời nhắn ( không bắt buộc )...">
+                            <input type="text" class="form-control" id="messages"
+                                placeholder="Nhập lời nhắn ( không bắt buộc )...">
                         </div>
                     </form>
                 </div>
 
                 <div class="col-md-6">
                     <form>
-						
+
                         <div class="form-group">
                             <h3>Ngân hàng hỗ trợ</h3>
                             <img src="images/card02.png" class="img-fluid" width="350" alt="Accepted Cards">
                         </div>
-						<div class="form-group">
-							<label for="expYear">Chọn ngân hàng</label>
-							<select class="form-control">
-								<option selected>Chọn ngân hàng</option>
-								<option selected>Ngân hàng Techombank</option>
-								<option selected>Ngân hàng BIDV</option>
-								<option selected>Ngân hàng ACB</option>
-								<option selected>Ngân hàng MB</option>
-								<option selected>Ngân hàng Agribank</option>
-								<option selected>Ngân hàng Sacombank</option>
-								<option selected>Ngân hàng VietinBank</option>
-								<option selected>Ngân hàng Vietcombank</option>
-								<option selected>Ngân hàng SHB</option>
-								<option selected>Ngân hàng VPBank</option>
-							</select>
-						</div>
+                        <div class="form-group">
+                            <label for="expYear">Chọn ngân hàng</label>
+                            <select class="form-control">
+                                <option selected>Chọn ngân hàng</option>
+                                <option selected>Ngân hàng Techombank</option>
+                                <option selected>Ngân hàng BIDV</option>
+                                <option selected>Ngân hàng ACB</option>
+                                <option selected>Ngân hàng MB</option>
+                                <option selected>Ngân hàng Agribank</option>
+                                <option selected>Ngân hàng Sacombank</option>
+                                <option selected>Ngân hàng VietinBank</option>
+                                <option selected>Ngân hàng Vietcombank</option>
+                                <option selected>Ngân hàng SHB</option>
+                                <option selected>Ngân hàng VPBank</option>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="cardNumber">Số thẻ tín dụng</label>
-                            <input type="text" class="form-control" id="cardNumber" placeholder="Nhập số thẻ tín dụng...">
+                            <input type="text" class="form-control" id="cardNumber"
+                                placeholder="Nhập số thẻ tín dụng...">
                         </div>
                         <div class="form-group">
                             <label for="expMonth">Tháng hết hạn</label>
-                            <input type="text" class="form-control" id="expMonth" placeholder="Nhập tháng hết hạn...">
+                            <input type="text" class="form-control" id="expMonth"
+                                placeholder="Nhập tháng hết hạn...">
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -99,33 +104,35 @@
         </div>
     </header>
 
-	<div id="payment-confirmation" class="payment-popup">
-		<div class="popup-content">
-			<h4>Bạn có chắc chắn muốn thanh toán không?</h4>
-			<div id="countdown"></div>
-			<div class="popup-buttons">
-				<button id="cancel-payment" class="btn btn-danger">Hủy</button>
-				<button id="confirm-payment" class="btn btn-success" style="display:none;">Chắc chắn</button>
-			</div>
-		</div>
-	</div>
+    <div id="payment-confirmation" class="payment-popup">
+        <div class="popup-content">
+            <h4>Bạn có chắc chắn muốn thanh toán không?</h4>
+            <div id="countdown"></div>
+            <div class="popup-buttons">
+                <button id="cancel-payment" class="btn btn-danger">Hủy</button>
+                <button id="confirm-payment" class="btn btn-success" style="display:none;">Chắc chắn</button>
+            </div>
+        </div>
+    </div>
 
-	<div id="payment-popup" class="payment-popup">
-		<div class="popup-content">
-			<h4>Đang xử lý thanh toán...</h4>
-			<div class="progress">
-				<div id="payment-progress" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-			</div>
-			<button id="complete-payment" class="btn btn-success" style="display: none;">Hoàn thành</button>
-		</div>
-	</div>
+    <div id="payment-popup" class="payment-popup">
+        <div class="popup-content">
+            <h4>Đang xử lý thanh toán...</h4>
+            <div class="progress">
+                <div id="payment-progress" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <button id="complete-payment" class="btn btn-success" style="display: none;">Hoàn thành</button>
+        </div>
+    </div>
 
 
     <div id="payment-popup" class="payment-popup">
         <div class="popup-content">
             <h4>Đang xử lý thanh toán...</h4>
             <div class="progress">
-                <div id="payment-progress" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                <div id="payment-progress" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0"
+                    aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <button id="complete-payment" class="btn btn-success" style="display: none;">Hoàn thành</button>
         </div>
@@ -143,12 +150,21 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-superfish/1.7.10/js/superfish.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jpanelmenu@1.2.0/dist/jPanelMenu.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stacktable/1.0.5/stacktable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-	<script src="scripts/payment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/responsive-elements/1.0.2/responsive-elements.min.js"
+        integrity="sha512-4EEhTgTsRNAlk47ymSP/SpkKMgK0/SgMCn63uVPAKm7ctnjkAz0bHFClzF2uzYrowq0C+TLRxnQwJcbYSFUssQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/response.js/0.10.1/response.min.js"
+        integrity="sha512-3oQSIvnfs9CoWMjytvn4nVXfYmPPA5VxFeAFGEHWgN6SeyYoooVyMItxLvCldTq8143J43NYXwF1XfmVvqkmVQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/3.39.0/minified.js"
+        integrity="sha512-qc8tnhnrlWqffX6ObbRcniCPRG9xwBKf4n0h4Bs9jMyTEz1i6X+rhd2+GMGP7sIDjNnghryql3CYXLYb3XcdhA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+<script src="scripts/payment.js"></script>
 
 </body>
 

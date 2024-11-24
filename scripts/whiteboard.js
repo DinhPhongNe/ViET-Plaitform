@@ -3,14 +3,13 @@ const whiteboardCanvas = new fabric.Canvas('whiteboard');
 let currentColor = 'black';
 let currentLineWidth = 5;
 let isHighlight = false;
-let currentTool = 'freeDrawing'; // Default tool
+let currentTool = 'freeDrawing';
 let startX, startY, tempShape;
 
-// Function to toggle whiteboard visibility
 function toggleWhiteboard() {
     if (whiteboardContainer.style.display === 'block') {
         whiteboardContainer.style.display = 'none';
-        whiteboardCanvas.clear(); // Clear canvas on hide
+        whiteboardCanvas.clear();
     } else {
         whiteboardContainer.style.display = 'block';
     }
@@ -18,23 +17,19 @@ function toggleWhiteboard() {
 
 document.querySelector('.feather-users').addEventListener('click', toggleWhiteboard);
 
-// Initialize default free drawing mode
 whiteboardCanvas.isDrawingMode = true;
 whiteboardCanvas.freeDrawingBrush = new fabric.PencilBrush(whiteboardCanvas);
 updateBrushProperties();
 
-// Toolbar buttons
 const toolbar = document.createElement('div');
 toolbar.id = 'toolbar';
 whiteboardContainer.appendChild(toolbar);
 
-// Clear button (keeps in main toolbar)
 const clearButton = document.createElement('button');
 clearButton.textContent = 'Xóa';
-clearButton.onclick = () => whiteboardCanvas.clear(); // Clear canvas
+clearButton.onclick = () => whiteboardCanvas.clear();
 toolbar.appendChild(clearButton);
 
-// Color picker (keeps in main toolbar)
 const colorPicker = document.createElement('input');
 colorPicker.type = 'color';
 colorPicker.value = currentColor;
@@ -44,7 +39,6 @@ colorPicker.addEventListener('change', (e) => {
 });
 toolbar.appendChild(colorPicker);
 
-// Line width slider (keeps in main toolbar)
 const lineWidthSlider = document.createElement('input');
 lineWidthSlider.type = 'range';
 lineWidthSlider.min = 1;
@@ -56,17 +50,14 @@ lineWidthSlider.addEventListener('input', (e) => {
 });
 toolbar.appendChild(lineWidthSlider);
 
-// Tạo một menu dropdown chung
 function createDropdownMenu(title, options) {
     const dropdown = document.createElement('div');
     dropdown.className = 'dropdown';
 
-    // Button chính
     const mainButton = document.createElement('button');
     mainButton.textContent = title;
     dropdown.appendChild(mainButton);
 
-    // Menu con
     const dropdownContent = document.createElement('div');
     dropdownContent.className = 'dropdown-content';
 
@@ -81,7 +72,6 @@ function createDropdownMenu(title, options) {
     return dropdown;
 }
 
-// Clear button dropdown
 toolbar.appendChild(
     createDropdownMenu('Tools', [
         { label: 'Xóa', action: () => whiteboardCanvas.clear() },
@@ -99,7 +89,6 @@ toolbar.appendChild(
     ])
 );
 
-// Tool selection dropdown
 toolbar.appendChild(
     createDropdownMenu('Shapes', [
         { label: 'Free Drawing', action: () => { currentTool = 'freeDrawing'; whiteboardCanvas.isDrawingMode = true; } },
@@ -110,7 +99,6 @@ toolbar.appendChild(
     ])
 );
 
-// Color and line width dropdown
 toolbar.appendChild(
     createDropdownMenu('Settings', [
         {
@@ -124,25 +112,21 @@ toolbar.appendChild(
     ])
 );
 
-// Canvas events
 whiteboardCanvas.on('mouse:down', (options) => {
     const pointer = whiteboardCanvas.getPointer(options.e);
     startX = pointer.x;
     startY = pointer.y;
 
-    // Kiểm tra nếu người dùng click vào một đối tượng text đang được chỉnh sửa
     const activeObject = whiteboardCanvas.getActiveObject();
     if (activeObject && activeObject.type === 'textbox') {
-        activeObject.enterEditing();  // Bắt đầu chỉnh sửa ngay lập tức
+        activeObject.enterEditing();
     } else {
-        // Nếu click ngoài, kết thúc chế độ chỉnh sửa của text
         if (activeObject && activeObject.type === 'textbox' && activeObject.isEditing) {
             activeObject.exitEditing();
         }
     }
 });
 
-// Mouse move event for drawing shapes
 whiteboardCanvas.on('mouse:move', (options) => {
     if (!startX || !startY || currentTool === 'freeDrawing') return;
 
@@ -150,7 +134,6 @@ whiteboardCanvas.on('mouse:move', (options) => {
     const endX = pointer.x;
     const endY = pointer.y;
 
-    // Remove temporary shape if exists
     if (tempShape) whiteboardCanvas.remove(tempShape);
 
     if (currentTool === 'line') {
@@ -187,51 +170,43 @@ whiteboardCanvas.on('mouse:move', (options) => {
     whiteboardCanvas.renderAll();
 });
 
-// Mouse up event for finalizing shapes
 whiteboardCanvas.on('mouse:up', (event) => {
     if (currentTool === 'text') {
         const pointer = whiteboardCanvas.getPointer(event.e);
-        const text = new fabric.Textbox('Click to edit text', { // Placeholder text
+        const text = new fabric.Textbox('Click to edit text', {
             left: pointer.x,
             top: pointer.y,
             fontSize: 20,
             fill: currentColor,
-            editable: true,  // Cho phép chỉnh sửa
-            hasControls: true, // Hiện các điều khiển resize
+            editable: true,
+            hasControls: true,
         });
 
-        // Đảm bảo text có thể chỉnh sửa và thay đổi giá trị khi người dùng click vào
         text.on('modified', () => {
             text.setCoords();
         });
 
-        // Chỉ đặt placeholder nếu người dùng chưa chỉnh sửa
         text.on('editing:entered', () => {
             if (text.text === 'Click to edit text') {
-                text.text = '';  // Xóa placeholder khi bắt đầu chỉnh sửa
+                text.text = '';
             }
         });
 
-        // Thêm vào canvas và chọn đối tượng vừa tạo
         whiteboardCanvas.add(text);
-        whiteboardCanvas.setActiveObject(text); // Làm cho text trở thành đối tượng đang được chỉnh sửa
+        whiteboardCanvas.setActiveObject(text);
 
-        // Bắt đầu chế độ chỉnh sửa ngay khi thêm text mới
         text.enterEditing();
     } else {
-        // Thêm hình vào canvas khi vẽ xong (đối với các hình khác)
         if (tempShape) {
             whiteboardCanvas.add(tempShape);
-            tempShape = null; // Reset lại shape tạm thời sau khi vẽ xong
+            tempShape = null;
         }
     }
 
-    // Reset start positions after drawing is complete
     startX = null;
     startY = null;
 });
 
-// Helper to update brush properties
 function updateBrushProperties() {
     whiteboardCanvas.freeDrawingBrush.color = currentColor;
     whiteboardCanvas.freeDrawingBrush.width = currentLineWidth;

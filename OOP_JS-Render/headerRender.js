@@ -18,7 +18,8 @@ class Header {
                 { name: 'Thêm việc làm', link: 'add-job.html' },
                 { name: 'Quản lý học viên', link: 'manage-applications.html' }
             ]},
-            { name: 'Blog', link: 'blog.html' }
+            { name: 'Blog', link: 'blog.html' },
+            { name: 'Nạp tiền', link: ''}
         ];
         this.loginLinks = [
             { icon: 'fa-user', text: 'Đăng ký', link: 'my-account.html#tab2' },
