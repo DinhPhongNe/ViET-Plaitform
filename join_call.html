@@ -1,25 +1,15 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="en">
-  <!--<![endif]-->
   <head>
-    <!-- Basic Page Needs
-================================================== -->
     <meta charset="utf-8" />
     <title>ViET - Học được làm được</title>
 
-    <!-- Mobile Specific Metas
-================================================== -->
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1"
     />
 
-    <!-- CSS
-================================================== -->
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/colors/cyan.css" id="colors" />
+    <link rel="stylesheet" href="css/colors/cyan.css" id="colors" 
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -30,19 +20,14 @@
 
   <body>
     <div id="wrapper">
-      <!-- Header
-================================================== -->
       <div id="header-container"></div>
       
       <div class="clearfix"></div>
       
-      <!-- Banner
-================================================== -->
       <div id="banner" style="background: url(images/banner-home-01.jpg)">
         <div class="container">
           <div class="sixteen columns">
             <div class="search-container">
-              <!-- Browse Jobs -->
               <div class="join_with_tutor">
                 <a href="videocall.html"> Vào học với gia sư thôi</a>
               </div>
@@ -51,12 +36,8 @@
         </div>
       </div>
 
-      <!-- Content
-================================================== -->
 
-      <!-- Categories -->
       <div class="container">
-        <!-- Recent Jobs -->
         <div class="eleven columns">
           <div class="padding-right">
             <h3 class="margin-bottom-25">Gia sư gần đây</h3>
@@ -186,11 +167,9 @@
           </div>
         </div>
 
-        <!-- Job Spotlight -->
         <div class="five columns">
           <h3 class="margin-bottom-5">Gia sư tiêu biểu</h3>
 
-          <!-- Navigation -->
           <div class="showbiz-navigation">
             <div id="showbiz_left_1" class="sb-navigation-left">
               <i class="fa fa-angle-left"></i>
@@ -201,7 +180,6 @@
           </div>
           <div class="clearfix"></div>
 
-          <!-- Showbiz Container -->
           <div id="job-spotlight" class="showbiz-container">
             <div
               class="showbiz"
@@ -292,18 +270,12 @@
           <p>Chúng tôi khuyến nghị các học viên/gia sư/giáo viên sử dụng màn hình lớn để có trãi nghiệm tốt nhất khi học online!</p>
         </div>
       </div>
-      <!-- Footer
-================================================== -->
 <div class="margin-top-15"></div>
 
       <div id="footer-container"></div>
-      <!-- Back To Top Button -->
       <div id="backtotop"><a href="#"></a></div>
     </div>
-    <!-- Wrapper / End -->
 
-    <!-- Scripts
-================================================== -->
     <script src="scripts/jquery-2.1.3.min.js"></script>
     <script src="scripts/custom.js"></script>
     <script src="scripts/jquery.superfish.js"></script>
@@ -321,43 +293,34 @@
     <script src="OOP_JS-Render/headerRender.js"></script>
     <script src="OOP_JS-Render/footerRender.js"></script>
 
-    <!-- Tải jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- Tải các plugin cần thiết (tùy theo các thư viện bạn sử dụng) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-superfish/1.7.10/js/superfish.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jpanelmenu@1.2.0/dist/jPanelMenu.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stacktable/1.0.5/stacktable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
     <script>
-        // Get the popup element
         const popup = document.getElementById('popup');
-        // Get the button that opens the popup
         const joinButton = document.querySelector('.join_with_tutor a');
-        // Get the close button of the popup
         const closeButton = document.querySelector('.close-popup');
 
-        // Function to open the popup
         function openPopup() {
           popup.style.display = "block";
         }
 
-        // Function to close the popup and redirect
         function closePopup() {
           popup.style.display = "none";
-          window.location.href = "videocall.html"; // Redirect to videocall.html
+          window.location.href = "videocall.html";
         }
 
-        // Add event listeners
         joinButton.addEventListener('click', (e) => {
-          e.preventDefault(); // Prevent default link behavior
+          e.preventDefault();
           openPopup();
         });
 
         closeButton.addEventListener('click', closePopup);
 
-        // Close popup when clicking outside of it and redirect
         window.addEventListener('click', function(event) {
           if (event.target == popup) {
             closePopup();
@@ -367,7 +330,6 @@
     </script>
 
     <style>
-      /* Popup styles */
       .popup {
         display: none;
         position: fixed;
@@ -385,7 +347,7 @@
         margin: 15% auto;
         padding: 20px;
         border: 1px solid #888;
-        width: 30%; /* Adjust width as needed */
+        width: 30%;
         text-align: center;
       }
 

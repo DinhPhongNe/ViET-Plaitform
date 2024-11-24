@@ -1,4 +1,3 @@
-/*==================== BASE ====================*/
 * {
   box-sizing: border-box;
 }
@@ -21,7 +20,6 @@ button:hover {
 a {
   text-decoration: none;
 }
-/*==================== VARIABLES CSS ====================*/
 
 body {
   --app-background: #eaebf5;
@@ -36,9 +34,8 @@ body {
   --message-text: #2c303a;
   --placeholder-text: #a2a4bc;
   --button-bg: #fff;
-  --light-font: #2c303a; /* Added for btn-close-right */
+  --light-font: #2c303a;
 }
-/*========== Variables Dark theme ==========*/
 
 body.dark {
   --app-background: #262a42;
@@ -51,7 +48,7 @@ body.dark {
   --button-bg: #3c3f56;
   --main-color: #6f74ff;
   --message-bg-2: #6f74ff;
-  --light-font: #fff; /* Added for btn-close-right */
+  --light-font: #fff;
 }
 
 body.dark .mic {
@@ -79,7 +76,6 @@ body.dark .btn-close-right {
 .dark .chat-typing-area {
   box-shadow: none;
 }
-/*==================== LAYOUT ====================*/
 .app-container {
   background-color: var(--app-background);
   width: 100%;
@@ -88,7 +84,6 @@ body.dark .btn-close-right {
   display: flex;
   transition: 0.2s;
 }
-/*==================== Navigation ====================*/
 .left-side {
   position: relative;
   padding: 16px;
@@ -120,12 +115,11 @@ body.dark .btn-close-right {
   transition: 0.2s ease-in;
 }
 .right-side {
-  flex: 0 0 350px; /* Fixed width */
+  flex: 0 0 350px;
   padding: 16px;
   display: flex;
   flex-direction: column;
-  /*Added below*/
-  overflow-y: auto; /* Enable scrolling if content exceeds height */
+  overflow-y: auto;
 }
 
 .right-side {
@@ -139,7 +133,6 @@ body.dark .btn-close-right {
   display: block;
   transform: translateX(0);
 }
-/*==================== Chat ====================*/
 .chat-container {
   background-color: var(--chat-background);
   border-radius: 10px;
@@ -297,7 +290,6 @@ body.dark .btn-close-right {
   width: 20px;
   height: 20px;
 }
-/*==================== Main App ====================*/
 .app-main {
   flex: 1;
   width: 100%;
@@ -307,16 +299,16 @@ body.dark .btn-close-right {
   align-items: center;
 }
 .video-call-wrapper {
-  position: relative; /* Làm cha cho các phần tử con */
-  height: 100vh; /* Chiếm chiều cao toàn bộ màn hình */
-  width: 100%; /* Chiếm chiều rộng toàn bộ màn hình */
-  overflow: hidden; /* Ngăn phần tử tràn ra ngoài */
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }
 
 .video-call {
-  background-color: #000; /* Placeholder để dễ nhìn */
+  background-color: #000;
   border: 1px solid #ccc;
-  border-radius: 8px; /* Bo góc cho đẹp */
+  border-radius: 8px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -325,32 +317,32 @@ body.dark .btn-close-right {
 }
 
 .main_video {
-  position: absolute; /* Đặt video chính ở vị trí tuyệt đối */
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%; /* Full chiều rộng */
-  height: 100%; /* Full chiều cao */
-  object-fit: cover; /* Giữ tỷ lệ video */
-  z-index: 1; /* Video chính ở dưới */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
 .floating_video {
-  position: absolute; /* Đặt video nhỏ ở vị trí tuyệt đối */
-  top: 50px; /* Cách đầu một chút */
-  right: 20px; /* Đặt ở góc phải */
-  width: 200px; /* Kích thước video nhỏ */
-  height: 150px; /* Kích thước video nhỏ */
-  object-fit: cover; /* Giữ tỷ lệ */
-  z-index: 2; /* Video nhỏ nằm trên video chính */
-  border: 2px solid #fff; /* Viền trắng cho video nhỏ */
-  border-radius: 8px; /* Bo góc */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Đổ bóng cho video nhỏ */
-  cursor: move; /* Thêm con trỏ "di chuyển" */
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  z-index: 2;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  cursor: move;
 }
 
 .floating_video:hover {
-  cursor: grab; /* Con trỏ khi hover */
-  transform: scale(1.05); /* Zoom nhẹ khi hover */
+  cursor: grab;
+  transform: scale(1.05);
   transition: transform 0.2s ease-in-out;
 }
 
@@ -386,7 +378,7 @@ body.dark .btn-close-right {
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 100%;
   gap: 10px;
-  height: 100vh; /* Chiếm toàn bộ chiều cao */
+  height: 100vh;
   padding: 10px;
   box-sizing: border-box;
 }
@@ -435,13 +427,6 @@ body.dark .btn-close-right {
 .btn-camera {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-camera-off' viewBox='0 0 24 24'%3E%3Cpath d='M1 1l22 22M21 21H3a2 2 0 01-2-2V8a2 2 0 012-2h3m3-3h6l2 3h4a2 2 0 012 2v9.34m-7.72-2.06a4 4 0 11-5.56-5.56'/%3E%3C/svg%3E%0A");
 }
-/* .video-call-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: bottom;
-  padding-top: 64px;
-  max-width: 500px;
-} */
 
 .video-call-actions {
   display: flex;
@@ -596,27 +581,23 @@ body.dark .btn-close-right {
   cursor: pointer;
   display: none;
 }
-/*==================== MEDIA QUERIES ====================*/
 
-/*  Start of Media Queries from style.css */
-/* Standard 1180 (devices and browsers) */
 @media only screen and (min-width: 1200px) {
   @media (max-width: 1200px) {
     .app-container {
-      grid-template-columns: 1fr; /* Stack elements vertically */
-      grid-template-rows: auto 1fr auto; /* Main content, navigation bar */
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr auto;
     }
     .left-side,
     .video-call-wrapper,
     .right-side,
     #whiteboard-container {
-      grid-column: 1 / 2; /* Each element takes the full width */
+      grid-column: 1 / 2;
       grid-row: auto;
     }
   }
 }
 
-/* Smaller than standard 1180 (devices and browsers) */
 @media only screen and (min-width: 960px) and (max-width: 1289px) {
   .search-container {
     padding: 150px 0;
@@ -634,7 +615,6 @@ body.dark .btn-close-right {
   }
 }
 
-/* Tablet Portrait size to standard 960 (devices and browsers) */
 @media only screen and (min-width: 768px) and (max-width: 990px) {
   .search-container input.ico-01 {
     width: 49%;
@@ -721,7 +701,7 @@ body.dark .btn-close-right {
   }
 
   #video-call-container {
-    grid-template-rows: auto auto; /* Chiều cao tự động theo nội dung trên màn hình nhỏ */
+    grid-template-rows: auto auto;
   }
 }
 
@@ -779,7 +759,6 @@ ul.float-right li a {
   padding: 0;
 }
 
-/* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
   .search-container h2 {
     font-size: 40px;
@@ -1010,14 +989,12 @@ ul.float-right li a {
   }
 }
 
-/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
   #popular-categories li a {
     width: 50%;
   }
 }
 
-/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {
   .resume-titlebar img {
     display: none;
@@ -1026,7 +1003,6 @@ ul.float-right li a {
     margin-left: 0px;
   }
 }
-/* End of Media Queries from style.css */
 
 .modal {
   display: none;
@@ -1106,7 +1082,6 @@ ul.float-right li a {
   background-color: #ccc;
 }
 
-/* Success Modal */
 .success-modal {
   display: none;
   position: fixed;
@@ -1147,11 +1122,11 @@ ul.float-right li a {
 }
 
 .mic.muted {
-  background-color: gray; /* Example styling */
+  background-color: gray;
 }
 
 .camera.camera-off {
-  background-color: gray; /* Example styling */
+  background-color: gray;
 }
 
 .camera-popup {
@@ -1159,17 +1134,16 @@ ul.float-right li a {
   top: 20px;
   right: 20px;
   width: 300px;
-  background-color: #4caf50; /* Màu xanh */
+  background-color: #4caf50;
   padding: 20px;
   border-radius: 10px;
   color: white;
   text-align: center;
-  display: none; /* Ẩn ban đầu */
+  display: none;
   opacity: 0;
-  animation: slideIn 0.5s ease-out forwards; /* Thêm animation */
+  animation: slideIn 0.5s ease-out forwards;
 }
 
-/* Hiệu ứng keyframes cho popup */
 @keyframes slideIn {
   0% {
     transform: translateX(100%);
@@ -1207,7 +1181,7 @@ ul.float-right li a {
 }
 
 .file-upload-progress {
-  display: none; /* Hidden until upload starts */
+  display: none;
   width: 100%;
   background-color: #ddd;
   border-radius: 5px;
@@ -1227,7 +1201,7 @@ ul.float-right li a {
 .wifi-bar {
   height: 10px;
   background-color: #4caf50;
-  width: 100%; /* Initially full strength */
+  width: 100%;
   border-radius: 5px;
 }
 
@@ -1240,7 +1214,7 @@ ul.float-right li a {
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
-  height: auto; /* Để responsive */
+  height: auto;
 }
 
 .whiteboard {
@@ -1260,7 +1234,6 @@ ul.float-right li a {
   right: 10px;
 }
 
-/* Style for the dropdown menu */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -1279,7 +1252,6 @@ ul.float-right li a {
   background-color: #45a049;
 }
 
-/* Dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -1287,11 +1259,10 @@ ul.float-right li a {
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  bottom: 100%; /* Đưa dropdown lên trên */
-  left: 0; /* Đảm bảo dropdown hiển thị ở đúng vị trí */
+  bottom: 100%;
+  left: 0;
 }
 
-/* Show the dropdown menu on click */
 .dropdown:hover .dropdown-content {
   display: block;
 }
@@ -1310,7 +1281,6 @@ ul.float-right li a {
   background-color: #ddd;
 }
 
-/* Show the dropdown menu on click */
 .dropdown:hover .dropdown-content {
   display: block;
 }

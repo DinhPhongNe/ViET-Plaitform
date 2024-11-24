@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ViET - Thanh Toán</title>
 
-    <!-- Bootstrap CSS (thêm từ CDN) -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Tùy chỉnh CSS -->
     <link rel="stylesheet" href="css/payment.css" />
 </head>
 
@@ -17,7 +15,6 @@
     <header>
         <div class="container">
             <div class="row">
-                <!-- Billing Address -->
                 <div class="col-md-6">
                     <h3>HOÁ ĐƠN THANH TOÁN</h3>
                     <form id="payment-form">
@@ -52,7 +49,6 @@
                     </form>
                 </div>
 
-                <!-- Payment Section -->
                 <div class="col-md-6">
                     <form>
 						
@@ -103,7 +99,6 @@
         </div>
     </header>
 
-	<!-- Xác nhận thanh toán pop-up -->
 	<div id="payment-confirmation" class="payment-popup">
 		<div class="popup-content">
 			<h4>Bạn có chắc chắn muốn thanh toán không?</h4>
@@ -115,7 +110,6 @@
 		</div>
 	</div>
 
-	<!-- Thanh toán Pop-up -->
 	<div id="payment-popup" class="payment-popup">
 		<div class="popup-content">
 			<h4>Đang xử lý thanh toán...</h4>
@@ -127,7 +121,6 @@
 	</div>
 
 
-    <!-- Thanh toán Pop-up -->
     <div id="payment-popup" class="payment-popup">
         <div class="popup-content">
             <h4>Đang xử lý thanh toán...</h4>
@@ -138,24 +131,19 @@
         </div>
     </div>
 
-    <!-- Thông báo lỗi khi chưa nhập đầy đủ thông tin (Sử dụng Bootstrap alert) -->
     <div id="error-popup" class="error-popup alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Lỗi!</strong> Vui lòng điền đầy đủ thông tin.
     </div>
 
-    <!-- Thông báo thanh toán thành công (Sử dụng Bootstrap alert) -->
     <div id="success-popup" class="success-popup alert alert-success alert-dismissible fade show" role="alert">
         <strong>Thành công!</strong> Thanh toán đã được xử lý.
     </div>
 
-    <!-- Bootstrap JS và Popper.js -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<!-- Tải jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- Tải các plugin cần thiết (tùy theo các thư viện bạn sử dụng) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-superfish/1.7.10/js/superfish.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jpanelmenu@1.2.0/dist/jPanelMenu.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stacktable/1.0.5/stacktable.min.js"></script>

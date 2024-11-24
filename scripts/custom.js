@@ -1,13 +1,9 @@
-/* ----------------- Start Document ----------------- */
 (function($){
     "use strict";
 
     $(document).ready(function(){
 
 
-    /*----------------------------------------------------*/
-    /*  Navigation
-    /*----------------------------------------------------*/
     if($('header').hasClass('full-width')) {
         $('header').attr('data-full', 'yes');
     }  
@@ -27,10 +23,10 @@
                  $('header').addClass('full-width')
             }
             $('#navigation').superfish({
-                delay:       300,                               // one second delay on mouseout
-                animation:   {opacity:'show'},   // fade-in and slide-down animation
-                speed:       200,                               // animation speed
-                speedOut:    50                                 // out animation speed
+                delay:       300,
+                animation:   {opacity:'show'},
+                speed:       200,
+                speedOut:    50
             });
         }
         if( winWidth < 1272 ) {
@@ -48,9 +44,6 @@
     menumobile();
 
 
-     /*----------------------------------------------------*/
-    /*  Mobile Navigation
-    /*----------------------------------------------------*/
         var jPanelMenu = $.jPanelMenu({
           menu: '#responsive',
           animated: false,
@@ -60,7 +53,6 @@
         });
 
 
-      // desktop devices
         $('.menu-trigger').on('click',function(){
           var jpm = $(this);
 
@@ -79,7 +71,6 @@
         });
 
 
-        // Removes SuperFish Styles
         $('#jPanelMenu-menu').removeClass('sf-menu');
         $('#jPanelMenu-menu li ul').removeAttr('style');
 
@@ -94,20 +85,14 @@
         });
 
 
-    /*----------------------------------------------------*/
-    /*  Stacktable / Responsive Tables Plug-in
-    /*----------------------------------------------------*/
     $('.responsive-table').stacktable();
     
 
 
-    /*----------------------------------------------------*/
-    /*  Back to Top
-    /*----------------------------------------------------*/
-        var pxShow = 400; // height on which the button will show
-        var fadeInTime = 400; // how slow / fast you want the button to show
-        var fadeOutTime = 400; // how slow / fast you want the button to hide
-        var scrollSpeed = 400; // how slow / fast you want the button to scroll to top.
+        var pxShow = 400;
+        var fadeInTime = 400;
+        var fadeOutTime = 400;
+        var scrollSpeed = 400;
 
         $(window).scroll(function(){
           if($(window).scrollTop() >= pxShow){
@@ -124,9 +109,6 @@
     
 
 
-    /*----------------------------------------------------*/
-    /*  Showbiz Carousel
-    /*----------------------------------------------------*/
         $('#job-spotlight').showbizpro({
             dragAndScroll:"off",
             visibleElementsArray:[1,1,1,1],
@@ -150,30 +132,24 @@
 
 
 
-    /*----------------------------------------------------*/
-    /*  Revolution Slider
-    /*----------------------------------------------------*/
         $('.fullwidthbanner').revolution({
             delay: 9000,
             startwidth: 1180,
             startheight: 585,
-            onHoverStop: "on", // Stop Banner Timet at Hover on Slide on/off
-            navigationType: "none", //bullet, none
-            navigationArrows: "verticalcentered", //nexttobullets, verticalcentered, none
-            navigationStyle: "none", //round, square, navbar, none
-            touchenabled: "on", // Enable Swipe Function : on/off
+            onHoverStop: "on",
+            navigationType: "none",
+            navigationArrows: "verticalcentered",
+            navigationStyle: "none",
+            touchenabled: "on",
             navOffsetHorizontal: 0,
             navOffsetVertical: 20,
-            stopAtSlide: -1, // Stop Timer if Slide "x" has been Reached. If stopAfterLoops set to 0, then it stops already in the first Loop at slide X which defined. -1 means do not stop at any slide. stopAfterLoops has no sinn in this case.
-            stopAfterLoops: -1, // Stop Timer if All slides has been played "x" times. IT will stop at THe slide which is defined via stopAtSlide:x, if set to -1 slide never stop automatic
+            stopAtSlide: -1,
+            stopAfterLoops: -1,
             fullWidth: "on",
         });
 
 
 
-    /*----------------------------------------------------*/
-    /*  Flexslider
-    /*----------------------------------------------------*/
         $('.testimonials-slider').flexslider({
             animation: "fade",
             controlsContainer: $(".custom-controls-container"),
@@ -182,9 +158,6 @@
 
 
 
-    /*----------------------------------------------------*/
-    /*  Counters
-    /*----------------------------------------------------*/
 
         $('.counter').counterUp({
             delay: 10,
@@ -193,9 +166,6 @@
 
 
 
-    /*----------------------------------------------------*/
-    /*  Chosen Plugin
-    /*----------------------------------------------------*/
 
         var config = {
           '.chosen-select'           : {disable_search_threshold: 10, width:"100%"},
@@ -209,9 +179,6 @@
         }
 
 
-    /*----------------------------------------------------*/
-    /*  Checkboxes "any" fix
-    /*----------------------------------------------------*/   
         $('.checkboxes').find('input:first').addClass('first')
         $('.checkboxes input').on('change', function() {
             if($(this).hasClass('first')){
@@ -223,9 +190,6 @@
         });
 
 
-    /*----------------------------------------------------*/
-    /*  Magnific Popup
-    /*----------------------------------------------------*/   
         
             $('body').magnificPopup({
                 type: 'image',
@@ -290,9 +254,6 @@
             });
 
 
-     /*---------------------------------------------------*/
-    /*  Contact Form
-    /*---------------------------------------------------*/
     $("#contactform .submit").on('click',function(e) {
 
 
@@ -301,8 +262,6 @@
       var user_email      = $('input[name=email]').val();
       var user_comment    = $('textarea[name=comment]').val();
 
-      //simple validation at client's end
-      //we simply change border color to red if empty field using .css()
       var proceed = true;
       if(user_name===""){
           $('input[name=name]').addClass('error');
@@ -317,17 +276,13 @@
             proceed = false;
           }
 
-          //everything looks good! proceed...
           if(proceed) {
             $('.hide').fadeIn();
             $("#contactform .submit").fadeOut();
-              //data to be sent to server
               var post_data = {'userName':user_name, 'userEmail':user_email, 'userComment':user_comment};
 
-              //Ajax post data to server
               $.post('contact.php', post_data, function(response){
                 var output;
-                //load json data from server and output comment
                 if(response.type == 'error')
                   {
                     output = '<div class="error">'+response.text+'</div>';
@@ -336,7 +291,6 @@
                   } else {
 
                     output = '<div class="success">'+response.text+'</div>';
-                    //reset values in all input fields
                     $('#contact div input').val('');
                     $('#contact textarea').val('');
                     $('.hide').fadeOut();
@@ -348,7 +302,6 @@
             }
       });
 
-    //reset previously set border colors and hide all comment on .keyup()
     $("#contactform input, #contactform textarea").keyup(function() {
       $("#contactform input, #contactform textarea").removeClass('error');
       $("#result").slideUp();
@@ -357,9 +310,6 @@
 
 
 
-    /*----------------------------------------------------*/
-    /*  Accordions
-    /*----------------------------------------------------*/
 
         var $accor = $('.accordion');
 
@@ -389,15 +339,10 @@
 
     
 
-    /*----------------------------------------------------*/
-    /*  Application Tabs
-    /*----------------------------------------------------*/   
-        // Get all the links.
         var link = $(".app-link");
         $('.close-tab').hide();
 
         $('.app-tabs div.app-tab-content').hide();
-        // On clicking of the links do something.
         link.on('click', function(e) {
 
             e.preventDefault();
@@ -426,9 +371,6 @@
         })
 
 
-    /*----------------------------------------------------*/
-    /*  Add Resume 
-    /*----------------------------------------------------*/   
         $('.box-to-clone').hide();
         $('.add-box').on('click', function(e) {
             e.preventDefault();
@@ -447,14 +389,10 @@
 
 
 
-    /*----------------------------------------------------*/
-    /*  Tabs
-    /*----------------------------------------------------*/ 
   
 
         var $tabsNav    = $('.tabs-nav'),
         $tabsNavLis = $tabsNav.children('li');
-        // $tabContent = $('.tab-content');
 
         $tabsNav.each(function() {
             var $this = $(this);
@@ -479,13 +417,12 @@
           var hash = window.location.hash;
     var anchor = $('.tabs-nav a[href="' + hash + '"]');
     if (anchor.length === 0) {
-        $(".tabs-nav li:first").addClass("active").show(); //Activate first tab
-        $(".tab-content:first").show(); //Show first tab content
+        $(".tabs-nav li:first").addClass("active").show();
+        $(".tab-content:first").show();
     } else {
         anchor.parent('li').trigger( "click" );
     }
 
-// ------------------ End Document ------------------ //
 });
 
 })(this.jQuery);

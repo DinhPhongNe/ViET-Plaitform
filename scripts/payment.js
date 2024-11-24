@@ -1,4 +1,3 @@
-// Thêm các năm cho select box "Năm hết hạn"
 const expYearSelect = document.getElementById('expYear');
 const currentYear = new Date().getFullYear();
 
@@ -22,7 +21,6 @@ document.getElementById('payment-btn').addEventListener('click', function (event
     const expYear = document.getElementById('expYear').value;
     const cvv = document.getElementById('cvv').value;
 
-    // Kiểm tra thông tin thanh toán
     if (!fullName || !email || !address || !city || !district || !cardNumber || !expMonth || !expYear || !cvv) {
         const errorPopup = document.getElementById('error-popup');
         errorPopup.style.display = 'block';
@@ -32,11 +30,9 @@ document.getElementById('payment-btn').addEventListener('click', function (event
         return;
     }
 
-    // Hiển thị pop-up xác nhận thanh toán
     const confirmPopup = document.getElementById('payment-confirmation');
     confirmPopup.style.display = 'flex';
 
-    // Đếm ngược từ 3 đến 1
     let countdown = 3;
     const countdownElement = document.getElementById('countdown');
     const confirmButton = document.getElementById('confirm-payment');
@@ -50,14 +46,12 @@ document.getElementById('payment-btn').addEventListener('click', function (event
             confirmButton.style.display = 'inline-block';
         }
         countdown--;
-    }, 1000); // Đếm ngược mỗi giây
+    }, 1000);
 
-    // Xử lý khi bấm "Hủy"
     cancelButton.addEventListener('click', () => {
-        confirmPopup.style.display = 'none'; // Ẩn pop-up khi hủy
+        confirmPopup.style.display = 'none';
     });
 
-    // Xử lý khi bấm "Chắc chắn"
     confirmButton.addEventListener('click', () => {
         const popup = document.getElementById('payment-popup');
         popup.style.display = 'flex';
@@ -72,15 +66,14 @@ document.getElementById('payment-btn').addEventListener('click', function (event
             progressBar.setAttribute('aria-valuenow', progress);
 
             if (progress >= 100) {
-                clearInterval(paymentInterval); // Dừng thanh tiến trình
-                completeButton.style.display = 'inline-block'; // Hiển thị nút hoàn thành
+                clearInterval(paymentInterval);
+                completeButton.style.display = 'inline-block';
             }
         }, 500);
 
-        // Khi bấm vào nút "Hoàn thành"
         completeButton.addEventListener('click', function () {
-            localStorage.setItem('paymentCompleted', 'true'); // Lưu trạng thái thanh toán thành công
-            window.location.href = 'index.html'; // Chuyển hướng về trang index.html
+            localStorage.setItem('paymentCompleted', 'true');
+            window.location.href = 'index.html';
         });
     });
 });
@@ -92,7 +85,7 @@ if (window.location.href.indexOf("index.html") > -1) {
 
         setTimeout(() => {
             successPopup.style.display = 'none';
-        }, 3000); // Ẩn thông báo sau 3 giây
+        }, 3000);
 
         localStorage.removeItem('paymentCompleted');
     }
