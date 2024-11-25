@@ -4,10 +4,12 @@ class Header {
         this.menuItems = [
             { name: 'Trang chủ', link: 'index.html', isCurrent: true },
             { name: 'Trang', link: '#', subMenu: [
-                { name: 'Hồ sơ của bạn', link: 'resume-page.html' },
-                { name: 'Bảng gói kế hoạch', link: 'pricing-tables.html' },
                 { name: 'Liên hệ', link: 'contact.html' },
-                { name: 'Chăm sóc khách hàng', link: 'customer_services.html'}
+                { name: 'Hồ sơ của bạn', link: 'resume-page.html' },
+                { name: 'Chăm sóc khách hàng', link: 'customer_services.html' },
+                { name: 'Bảng gói kế hoạch', link: 'pricing-tables.html' },
+                { name: 'Hướng dẫn sử dụng', link: 'tutorialPage.html' },
+                { name: 'Blog', link: 'blog.html' }
             ]},
             { name: 'Cho học viên', link: '#', subMenu: [
                 { name: 'Tìm gia sư', link: 'browse-jobs.html' },
@@ -18,7 +20,6 @@ class Header {
                 { name: 'Thêm việc làm', link: 'add-job.html' },
                 { name: 'Quản lý học viên', link: 'manage-applications.html' }
             ]},
-            { name: 'Blog', link: 'blog.html' },
             { name: 'Số dư', link: '#', subMenu: [
                 { name: 'Nạp thêm tiền', link: 'TopUp.html' },
                 { name: 'Số dư còn lại: ', id: 'balance-display', link: '404.html' }
