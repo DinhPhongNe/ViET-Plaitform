@@ -81,10 +81,14 @@ document.getElementById('payment-btn').addEventListener('click', function (event
                 const paymentValue = paymentAmountElement.value; // Lấy giá trị thanh toán
                 let currentBalance = localStorage.getItem('balance') ? parseInt(localStorage.getItem('balance')) : 0;
                 currentBalance += parseInt(paymentValue); // Cộng thêm số tiền thanh toán vào số dư hiện tại
-        
+
                 // Lưu lại số dư mới vào localStorage
                 localStorage.setItem('balance', currentBalance);
-        
+
+                // Tính lại số giờ học dựa trên số tiền mới và lưu vào localStorage
+                const lessonHours = Math.floor(currentBalance / 200000);  // Tính số giờ học từ số dư
+                localStorage.setItem('lessonHours', lessonHours);
+
                 // Điều hướng về trang index.html
                 window.location.href = 'index.html';
             } else {
@@ -93,6 +97,7 @@ document.getElementById('payment-btn').addEventListener('click', function (event
         });
     });
 });
+
 
 // Kiểm tra giá trị thanh toán từ localStorage và hiển thị trong header khi vào trang index.html
 if (window.location.href.indexOf("index.html") > -1) {

@@ -7,28 +7,39 @@ class Header {
                 { name: 'Liên hệ', link: 'contact.html' },
                 { name: 'Hồ sơ của bạn', link: 'resume-page.html' },
                 { name: 'Chăm sóc khách hàng', link: 'customer_services.html' },
-                { name: 'Bảng gói kế hoạch', link: 'pricing-tables.html' },
                 { name: 'Hướng dẫn sử dụng', link: 'tutorialPage.html' },
                 { name: 'Blog', link: 'blog.html' }
             ]},
-            { name: 'Cho học viên', link: '#', subMenu: [
+            { name: 'Học viên', link: '#', subMenu: [
                 { name: 'Tìm gia sư', link: 'browse-jobs.html' },
                 { name: 'Tìm môn học', link: 'browse-categories.html' },
                 { name: 'Vào học cùng gia sư', link: 'join_call.html' }
             ]},
-            { name: 'Cho gia sư', link: '#', subMenu: [
+            { name: 'Gia sư', link: '#', subMenu: [
                 { name: 'Thêm việc làm', link: 'add-job.html' },
                 { name: 'Quản lý học viên', link: 'manage-applications.html' }
             ]},
-            { name: 'Số dư', link: '#', subMenu: [
-                { name: 'Nạp thêm tiền', link: 'TopUp.html' },
-                { name: 'Số dư còn lại: ', id: 'balance-display', link: '404.html' }
+            { name: 'Số giờ học', link: '#', subMenu: [
+                { name: 'Nạp thêm giờ học', link: 'TopUp.html' },
+                { name: 'Số giờ còn lại: ', id: 'lesson-balance-display', link: '404.html' }
             ]},
         ];
         this.loginLinks = [
             { icon: 'fa-user', text: 'Đăng ký', link: 'my-account.html#tab2' },
             { icon: 'fa-lock', text: 'Đăng nhập', link: 'my-account.html' }
         ];
+
+        // Đơn giá tính giờ học (200k/h)
+        this.lessonRate = 200000;
+
+        // Khởi tạo lessonHours trong localStorage nếu chưa có
+        if (localStorage.getItem('lessonHours') === null) {
+            localStorage.setItem('lessonHours', 0);
+        }
+        // Khởi tạo balance trong localStorage nếu chưa có
+        if (localStorage.getItem('balance') === null) {
+            localStorage.setItem('balance', 0);
+        }
     }
 
     renderLogo() {
@@ -44,7 +55,7 @@ class Header {
     }
 
     renderMenu() {
-        let menuHTML = `<ul id="responsive">`;
+        let menuHTML = '<ul id="responsive">';
 
         this.menuItems.forEach(item => {
             if (item.subMenu) {
@@ -52,9 +63,9 @@ class Header {
                     <li>
                         <a href="${item.link}">${item.name}</a>
                         <ul>
-                            ${item.subMenu.map(sub => `
-                                <li><a href="${sub.link}" id="${sub.id || ''}">${sub.name}</a></li>
-                            `).join('')}
+                            ${item.subMenu.map(sub => 
+                                `<li><a href="${sub.link}" id="${sub.id || ''}">${sub.name}</a></li>`
+                            ).join('')}
                         </ul>
                     </li>
                 `;
@@ -65,16 +76,16 @@ class Header {
             }
         });
 
-        menuHTML += `</ul>`;
+        menuHTML += '</ul>';
         return menuHTML;
     }
 
     renderLoginLinks() {
         return `
             <ul class="float-right">
-                ${this.loginLinks.map(link => `
-                    <li><a href="${link.link}"><i class="fa ${link.icon}"></i> ${link.text}</a></li>
-                `).join('')}
+                ${this.loginLinks.map(link => 
+                    `<li><a href="${link.link}"><i class="fa ${link.icon}"></i> ${link.text}</a></li>`
+                ).join('')}
             </ul>
         `;
     }
@@ -87,16 +98,14 @@ class Header {
         `;
     }
 
-    // Hàm cập nhật số dư hiển thị trên menu
-    updateBalanceDisplay(balance) {
-        const balanceElement = document.getElementById('balance-display');
+    // Hàm cập nhật số giờ học hiển thị trên menu
+    updateLessonBalanceDisplay() {
+        const balanceElement = document.getElementById('lesson-balance-display');
+        const lessonHours = localStorage.getItem('lessonHours');
         if (balanceElement) {
-            // Dùng Intl.NumberFormat để format số tiền
-            const formattedBalance = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(balance);
-            balanceElement.textContent = `Số dư còn lại: ${formattedBalance}`;
+            balanceElement.textContent = `Số giờ còn lại: ${lessonHours} giờ`;
         }
     }
-    
 
     render() {
         const headerContainer = document.getElementById('header-container');
@@ -113,9 +122,38 @@ class Header {
             </div>
         `;
     
-        // Cập nhật số dư khi load trang
-        const balance = localStorage.getItem('balance') ? parseInt(localStorage.getItem('balance')) : 0;
-        this.updateBalanceDisplay(balance); // Hiển thị số dư đã cộng vào
+        // Cập nhật số giờ học khi load trang
+        this.updateLessonBalanceDisplay();
+    }
+
+    // Hàm nạp thêm giờ học
+    addLessons(amount) {
+        let currentBalance = parseInt(localStorage.getItem('balance')) || 0;
+
+        // Cộng dồn số tiền nạp vào balance
+        currentBalance += amount;
+        localStorage.setItem('balance', currentBalance);
+
+        // Tính số giờ học từ số tiền đã nạp và lưu lại
+        const lessonHours = Math.floor(currentBalance / this.lessonRate);
+        localStorage.setItem('lessonHours', lessonHours);
+
+        // Cập nhật hiển thị
+        this.updateLessonBalanceDisplay();
+    }
+
+    // Hàm tự động trừ giờ học mỗi tháng (ví dụ: 8 giờ/tháng)
+    deductMonthlyLessons() {
+        const monthlyHours = 8;
+        let currentHours = localStorage.getItem('lessonHours') ? parseInt(localStorage.getItem('lessonHours')) : 0;
+
+        if (currentHours >= monthlyHours) {
+            currentHours -= monthlyHours;
+            localStorage.setItem('lessonHours', currentHours);
+            this.updateLessonBalanceDisplay();
+        } else {
+            console.warn('Không đủ giờ học để trừ!');
+        }
     }
 }
 
@@ -123,10 +161,8 @@ class Header {
 const header = new Header();
 header.render();
 
-// // Lưu số dư sau khi thanh toán
-// const paymentAmount = 1000; // Ví dụ: người dùng thanh toán 1000 VND
-// let currentBalance = localStorage.getItem('balance') ? parseInt(localStorage.getItem('balance')) : 0;
-// currentBalance += paymentAmount; // Cộng thêm số tiền thanh toán vào số dư hiện tại
+// Ví dụ nạp thêm giờ học (nạp 5 triệu -> 25 giờ)
+// header.addLessons(5000000);
 
-// // Lưu lại số dư mới vào localStorage
-// localStorage.setItem('balance', currentBalance);
+// Ví dụ trừ giờ học mỗi tháng
+// header.deductMonthlyLessons();
