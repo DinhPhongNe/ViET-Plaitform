@@ -5,22 +5,22 @@ class Header {
             { name: 'Trang chủ', link: 'index.html', isCurrent: true },
             { name: 'Trang', link: '#', subMenu: [
                 { name: 'Liên hệ', link: 'contact.html' },
-                { name: 'Hồ sơ của bạn', link: 'resume-page.html' },
-                { name: 'Chăm sóc khách hàng', link: 'customer_services.html' },
+                { name: 'Hồ sơ của bạn', link: 'resume-page.html', id: 'forceLogin'},
+                { name: 'Chăm sóc khách hàng', link: 'customer_services.html', id: 'forceLogin' },
                 { name: 'Hướng dẫn sử dụng', link: 'tutorialPage.html' },
-                { name: 'Blog', link: 'blog.html' }
+                { name: 'Blog', link: 'blog.html', id: 'forceLogin'}
             ]},
             { name: 'Học viên', link: '#', subMenu: [
                 { name: 'Tìm gia sư', link: 'browse-jobs.html' },
                 { name: 'Tìm môn học', link: 'browse-categories.html' },
-                { name: 'Vào học cùng gia sư', link: 'join_call.html' }
+                { name: 'Vào học cùng gia sư', link: 'join_call.html', id: 'forceLogin' }
             ]},
             { name: 'Gia sư', link: '#', subMenu: [
-                { name: 'Thêm việc làm', link: 'add-job.html' },
-                { name: 'Quản lý học viên', link: 'manage-applications.html' }
+                { name: 'Thêm việc làm', link: 'add-job.html', id: 'forceLogin' },
+                { name: 'Quản lý học viên', link: 'manage-applications.html', id: 'forceLogin' }
             ]},
             { name: 'Số giờ học', link: '#', subMenu: [
-                { name: 'Nạp thêm giờ học', link: 'TopUp.html' },
+                { name: 'Nạp thêm giờ học', link: 'TopUp.html', id: 'forceLogin' },
                 { name: 'Số giờ còn lại: ', id: 'lesson-balance-display', link: '404.html' }
             ]},
         ];

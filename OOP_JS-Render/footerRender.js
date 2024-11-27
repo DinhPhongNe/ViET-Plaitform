@@ -5,7 +5,8 @@ class Footer {
                 title: "Giới thiệu",
                 content: "Chúng tôi cam kết mang đến giải pháp tốt nhất cho bạn. Với đội ngũ chuyên nghiệp và nền tảng hiện đại, chúng tôi luôn đồng hành cùng bạn trên con đường phát triển.",
                 buttonText: "Bắt đầu ngay",
-                buttonLink: "#"
+                buttonLink: "#",
+                id: 'forceLogin'
             },
             {
                 title: "Công ty",
